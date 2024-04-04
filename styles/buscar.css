@@ -1,0 +1,35 @@
+.busca{
+    height: 90px;
+    background-color: var(--roxo);
+    text-align: center;
+    padding: 1.2rem;
+    position: relative;
+
+}
+
+.busca__input{
+    background-color: transparent;
+    border: 1px solid var(--cor-de-fundo);
+    color: var(--cor-de-fundo);
+    font-family: var(--fonte);
+    border-radius: 32px;
+    padding: 0.6rem;
+    width: 100%;
+    text-align: center;
+    font-size: 15px; 
+}
+
+.busca__input::placeholder{
+    color: var(--cor-de-fundo);
+    font-family: var(--fonte);
+    font-weight: 200;
+    background-image: url('../img/Lupa.svg');
+    background-repeat: no-repeat;
+    background-position: 2rem;
+   
+}
+
+
+.home__background{
+    width: 100%;    
+}

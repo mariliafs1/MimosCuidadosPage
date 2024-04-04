@@ -1,0 +1,22 @@
+@import url('./styles/header.css');
+@import url('./styles/buscar.css');
+@import url('./styles/carrossel.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Reenie+Beanie&family=Rum+Raisin&display=swap');
+
+:root{
+    --cor-de-fundo: #F3F3F3;
+    --roxo: #5E416C;
+    --cinza: #C4C4C4;
+    --rosa: #F0DADA;
+    --cinza-escuro: #373438;
+    --preto: #000000;
+    --fonte-logo-1: "Rum Raisin", sans-serif;
+    --fonte-logo-2: "Reenie Beanie";
+    --fonte: "Poppins", sans-serif;
+   
+}
+
+body{
+    background-color: var(--cor-de-fundo);
+    height: 1000px;
+}

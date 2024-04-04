@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimos</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <h1>MIMOS</h1>
+            <p>CUIDADOS</p>
+        </div>
+        <div class="cabecalho_icons">
+            <a href="#"><img src="img/coracao.png" alt="icone de coração"></a>
+            <a href="#"><img src="img/bolsa.png" alt="icone de bolsa"></a>
+            <a href="#"><img src="img/user.png" alt="icone de usuário"></a>
+            <input type="checkbox" id="menu" class="cabecalho_botao">
+            <label for="menu">
+                <span class="cabecalho__menu-hamburguer"></span>
+            </label>
+            <ul class="lista-menu">
+                <li class="lista-menu__itens"><a href="#">Lançamentos</a></li>
+                <li class="lista-menu__itens"><a href="#">Mais vendidos</a></li>
+                <li class="lista-menu__itens"><a href="#">Promoção</a></li>
+                <li class="lista-menu__itens"><a href="#">News Letter</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="busca">
+        <input type="search" class="busca__input" placeholder="Qual produto você procura?">
+    </div>
+    <section class="home">
+        <img  src="./img/banner.png" class="home__background">
+    </section>
+    <section class="carrossel__wrapper">
+        <div class="carrossel">
+            <div id="left" class="carrossel__seta"><img src="img/seta_esquerda.png" alt="" ></div>
+            <div class="carrossel__container">
+                <img class='carrossel_img' src="img/maquiagem.png" draggable="false" alt="">
+                <img class='carrossel_img' src="img/cabelos.png" draggable="false" alt="">
+                <img class='carrossel_img' src="img/perfumaria_feminina.png" draggable="false" alt="">
+                <img class='carrossel_img' src="img/perfumaria_masculina.png" draggable="false" alt="">
+                <img class='carrossel_img' src="img/skin_care.png" draggable="false" alt="">
+                <img class='carrossel_img' src="img/corpoEbanho.png" draggable="false" alt="">
+            </div>
+            <div id="right" class="carrossel__seta"><img src="img/seta_direita.png" alt="" ></div>
+        </div>
+    </section>
+
+</body>
+</html>
