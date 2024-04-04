@@ -7,7 +7,11 @@ let isArrastoStart = false, prevPageX, prevScrollLeft;
 const mostrarSeta = () =>{
     let scrollWidth = carrossel.scrollWidth - carrossel.clientWidth;
     carrossel.scrollLeft == 0 ? setasBtn[0].classList.add("seta__hide") : setasBtn[0].classList.remove("seta__hide");
-    carrossel.scrollLeft == scrollWidth ? setasBtn[1].classList.add("seta__hide") : setasBtn[1].classList.remove("seta__hide");
+    carrossel.scrollLeft >= (scrollWidth - 1) ? setasBtn[1].classList.add("seta__hide") : setasBtn[1].classList.remove("seta__hide");
+    console.log(scrollWidth);
+    console.log("client: " + carrossel.clientWidth);
+    console.log("scrollwidth: "+ carrossel.scrollWidth);
+    console.log(carrossel.scrollLeft);
 }
 
 setasBtn.forEach(seta =>{
