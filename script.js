@@ -1,3 +1,4 @@
+//carrossel menu inicio
 const carrossel = document.querySelector('.carrossel__container');
 const setasBtn = document.querySelectorAll('.carrossel__seta');
 const primeiraImg = document.querySelectorAll('.carrossel_img')[0];
@@ -63,3 +64,5 @@ carrossel.addEventListener("mouseup", arrastoStop);
 carrossel.addEventListener("touchend", arrastoStop);
 
 carrossel.addEventListener("wheel", scrollWheel);
+
+//carrossel menu fim

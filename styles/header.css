@@ -4,8 +4,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
-    box-shadow: 4px 4px 4px rgba(0,0,0,0.5); ;
-    position: relative;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.5); 
+    position: fixed;
+    z-index: 2;
+    background-color: var(--cor-de-fundo);
+    width: 100%;
+    top: 0;
 }
 
 .logo{
@@ -24,13 +28,22 @@
 
 .cabecalho_icons{
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
     position: relative;
+    width: calc(100%/10);
     
 }
+
 .cabecalho_icons img{
     height: 32px;
 }
+.cabecalho_icons img:hover{
+    height: 35px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
 .cabecalho__menu-hamburguer{
     width: 32px;
     height: 32px;
@@ -39,6 +52,7 @@
     display: inline-block;
     
 }
+
 
 .lista-menu{
     display: none;
@@ -51,6 +65,12 @@
 
 .cabecalho_botao:checked ~ .lista-menu{
     display: block;
+}
+
+.cabecalho_botao:checked ~ .menu>span{
+    height: 34px;
+    opacity: 0.8;
+    transition: 0.3s;
 }
 
 .cabecalho_botao{
@@ -67,15 +87,58 @@
     text-decoration: none;
     font-family: var(--fonte);
     padding: 15px;
-    background: var(--preto);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    
 }
+
 .lista-menu__itens:not(:last-child){
     border-bottom: 1px solid var(--cinza);
 }
 
-.lista-menu__itens:hover{
-    background-color: var(--roxo);
+
+.lista-menu__itens:hover > a{
+    color: var(--roxo);
+    transition: 0.3s;
+    
+}
+
+.lista__menu__aberto{
+    display: none;
+}
+
+@media screen and (min-width: 850px){
+    .cabecalho{
+        position: static;
+        width: 100%;
+        top: 0;
+    }
+
+}
+
+@media screen and (min-width: 1024px){
+    .cabecalho__menu-hamburguer{
+        display: none;
+    }
+
+    .lista-menu__itens{
+        display: none;
+    }
+
+    .lista__menu__aberto{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        gap: 24px;
+        font-size: 20px;
+        font-family: var(--fonte);
+    }
+
+    .lista__menu__aberto a:hover{
+        color: var(--roxo);
+        font-size: 22px;
+        transition: 0.3s;
+    }
+
+}
+
+@media screen and (max-width: 1728px){
+   
 }
