@@ -71,7 +71,7 @@
     display: none;
     position: absolute;
     top: 120%;
-    right: -12%;
+    right: -20%;
     box-shadow: 4px 4px 4px  rgba(0,0,0,0.5);
     z-index: 4;
 }
