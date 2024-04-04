@@ -53,6 +53,19 @@
     
 }
 
+.overlay{
+    
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+}
+
+.overlay_desativado{
+    display: none;
+}
 
 .lista-menu{
     display: none;
@@ -60,7 +73,7 @@
     top: 120%;
     right: -12%;
     box-shadow: 4px 4px 4px  rgba(0,0,0,0.5);
-    z-index: 3;
+    z-index: 4;
 }
 
 .cabecalho_botao:checked ~ .lista-menu{

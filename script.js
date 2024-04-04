@@ -66,3 +66,17 @@ carrossel.addEventListener("touchend", arrastoStop);
 carrossel.addEventListener("wheel", scrollWheel);
 
 //carrossel menu fim
+
+const hamburguerBtn = document.querySelector('.cabecalho_botao');
+const overlay = document.querySelector('.overlay');
+
+hamburguerBtn.onclick = function(){
+    if(hamburguerBtn.checked){
+        overlay.classList.remove('overlay_desativado');
+    }
+}
+
+overlay.onclick = function(){
+    overlay.classList.add('overlay_desativado');
+    hamburguerBtn.checked = false;
+}
