@@ -2,34 +2,75 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: var(--cinza);
-    padding: 24px 10px;
-    height: 360px;
+    padding: 0px 10px;
+    height: 450px;
 
 }
 
 .titulo{
-    padding: 0 0 0px 0;
+    margin-bottom: 40px;
     font-size: 18px;
     font-family: var(--fonte);
     color: var(--roxo);
 }
 
-.ultimos__lancamentos__carrossel{
-    display: flex;
-    overflow: hidden;
-    width: 100%;
+.ultimos__lancamentos__carrossel__container{
+    max-width: 900px;
+    white-space: nowrap;
+    position: relative;
 }
 
+ .ultimos__lancamentos__carrossel{
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 70vw;
+    scroll-behavior: auto;
+}
+
+
+.ultimos__lancamentos__carrossel__seta{
+    display: flex;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-de-fundo);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 46px;
+    cursor:pointer;
+}
+.ultimos__lancamentos__carrossel__seta img{
+    height: 20px;
+    
+}
+
+.ultimos__lancamentos__carrossel__seta:first-child{
+    left: -23px;
+}
+.ultimos__lancamentos__carrossel__seta:last-child{
+    right: -23px;
+}
+
+
 .produto{
+    display: inline-block;
     text-align: center;
     border-radius: 12px;
     background-color: var(--rosa);
     font-family: var(--fonte);
-    margin: 10px;
-    width: 250px;
-    height: 250px;
-    
+    width: calc(100%/4);
+    margin-left: 14px;
+}
+
+.produto:first-child{
+    margin-left: 0px;
 }
 
 .produto__img__container{
@@ -101,16 +142,17 @@
     color: var(--roxo);
 }
 
-.produto__add-sacola{
+.produto__botao{
     background-color: var(--roxo);
     border: none;
     color: var(--cor-de-fundo);
     padding: 4px;
     width: 90px;
+    height: 30px;
     border-radius: 8px;
     opacity: 0.8;
     transition: 0.5s;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .produto__add-sacola:hover{
@@ -118,3 +160,18 @@
 
 }
 
+@media screen and (max-width: 900px){
+    .produto{
+        width: calc(100%/2);
+    }
+}
+
+@media screen and (max-width: 550px){
+    .produto{
+        width: calc(100%/1);
+    }
+
+    .ultimos__lancamentos__carrossel{
+        width: 50vw;
+    }
+}
