@@ -95,35 +95,53 @@ carrossel.addEventListener("wheel", scrollWheel);
 const carrossel2 = document.querySelector('.carrossel2__container');
 const setasUltimosLancamentos = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
 const primeiraImg2 = document.querySelectorAll('.produto')[0];
+const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
 
-let isArrastoStart2 = false, prevPageX2, prevScrollLeft2;
+let isArrastoStart2 = false,  prevPageX2, prevScrollLeft2, positionDiff2;
 
 arrastoSeta(carrossel2, setasUltimosLancamentos, primeiraImg2, 15);
+
+const autoSlide = ()=>{
+    positionDiff2 = Math.abs(positionDiff2);
+    let primeiraImg2Width = primeiraImg2.clientWidth +15;
+    let valDifference = primeiraImg2Width - positionDiff2;
+    console.log(valDifference);
+    if(carrossel2.scrollLeft > prevScrollLeft2 ){
+        return carrossel2.scrollLeft += positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
+
+    }
+    console.log("esquerda");
+
+    carrossel2.scrollLeft -= positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
+}
 
 const arrastoStart2 = ( e) =>{
     isArrastoStart2 = true;
     prevPageX2 = e.pageX || e.touches[0].pageX;
     prevScrollLeft2 = carrossel2.scrollLeft;
-    console,log('aqui');
+    
 }
 
 const arrasto2 = (e) => {
     if(!isArrastoStart2) return;
     e.preventDefault();
+
     carrossel2.classList.remove("arrasto__seta");
     carrossel2.classList.add("arrasto__cursor");
-    let positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX2;
-    carrossel2.scrollLeft = prevScrollLeft2 - positionDiff;
+    positionDiff2 = (e.pageX || e.touches[0].pageX) - prevPageX2;
+    carrossel2.scrollLeft = prevScrollLeft2 - positionDiff2;
     mostrarSeta(carrossel2, setasUltimosLancamentos);
-    console.log('aqui2');
+    
 }
 
 const arrastoStop2 = () =>{
     isArrastoStart2 = false;
     carrossel2.classList.remove("arrasto__seta");
     carrossel2.classList.remove("arrasto__cursor");
-    console.log('aqui3');
+    autoSlide();
+    
 }
+
 
 const scrollWheel2 = (e) =>{
     e.preventDefault();
