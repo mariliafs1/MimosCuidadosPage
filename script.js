@@ -105,12 +105,10 @@ const autoSlide = ()=>{
     positionDiff2 = Math.abs(positionDiff2);
     let primeiraImg2Width = primeiraImg2.clientWidth +15;
     let valDifference = primeiraImg2Width - positionDiff2;
-    console.log(valDifference);
     if(carrossel2.scrollLeft > prevScrollLeft2 ){
         return carrossel2.scrollLeft += positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
 
     }
-    console.log("esquerda");
 
     carrossel2.scrollLeft -= positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
 }
@@ -138,7 +136,9 @@ const arrastoStop2 = () =>{
     isArrastoStart2 = false;
     carrossel2.classList.remove("arrasto__seta");
     carrossel2.classList.remove("arrasto__cursor");
-    autoSlide();
+    if(window.innerWidth<= 550){
+        autoSlide();
+    }
     
 }
 
