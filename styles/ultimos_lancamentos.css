@@ -180,10 +180,11 @@
 
 @media screen and (max-width: 550px){
     .produto{
-        width: calc(100%/1);
+        width: calc((100%/1));
     }
 
     .carrossel2__container{
-        width: 50vw;
+        width: 65vw;
+        overflow-x: none;
     }
 }
