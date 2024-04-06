@@ -41,9 +41,7 @@
     right: -23px;
 }
 
-.seta__hide{
-    display: none;
-}
+
 
 .carrossel__container{
     white-space: nowrap;
@@ -56,9 +54,7 @@
        
 }
 
-.arrasto__cursor{
-    cursor: grabbing;
-}
+
 
 .arrasto__seta{
     scroll-behavior: smooth; 

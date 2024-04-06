@@ -21,3 +21,12 @@ body{
     background-color: var(--cor-de-fundo);
     height: 2000px;
 }
+
+/* css dos carrosseis */
+.seta__hide{
+    display: none;
+}
+
+.arrasto__cursor{
+    cursor: grabbing;
+}

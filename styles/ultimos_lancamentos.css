@@ -1,4 +1,4 @@
-.ultimos__lancamentos{
+.carrossel2__wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,18 +11,19 @@
 
 .titulo{
     margin-bottom: 40px;
-    font-size: 18px;
+    font-size: 24px;
     font-family: var(--fonte);
     color: var(--roxo);
+    font-weight: 400;
 }
 
-.ultimos__lancamentos__carrossel__container{
+.carrossel2{
     max-width: 900px;
     white-space: nowrap;
     position: relative;
 }
 
- .ultimos__lancamentos__carrossel{
+ .carrossel2__container{
     font-size: 0px;
     cursor: pointer;
     overflow: hidden;
@@ -58,6 +59,16 @@
     right: -23px;
 }
 
+.carrossel2__container::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaa; 
+    border-radius: 10px;
+  }
+ .carrossel2__container::-webkit-scrollbar-thumb {
+    background: var(--roxo);
+    border-radius: 10px;
+  }
 
 .produto{
     display: inline-block;
@@ -153,9 +164,10 @@
     opacity: 0.8;
     transition: 0.5s;
     font-size: 10px;
+    cursor: pointer;
 }
 
-.produto__add-sacola:hover{
+.produto__botao:hover{
     opacity: 1;
 
 }
@@ -171,7 +183,7 @@
         width: calc(100%/1);
     }
 
-    .ultimos__lancamentos__carrossel{
+    .carrossel2__container{
         width: 50vw;
     }
 }
