@@ -1,7 +1,5 @@
 .busca{
-    
     max-width: 1400px;
-    
     background-color: var(--roxo);
     text-align: center;
     padding: 1.2rem 0;
@@ -44,11 +42,18 @@
 
 .home{
     max-width: 1400px;
-    text-align: center;
+    align-items: center;
     margin: 0 auto;
+ 
 }
+
 .home__background{
-    width: 100%;  
+    width: 100%;
+}
+
+.home__background img{
+    max-width: 1400px;
+    
 }
 
 @media screen and (min-width: 850px){

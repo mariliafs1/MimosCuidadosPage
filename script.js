@@ -23,12 +23,19 @@ const setasBtn = document.querySelectorAll('.carrossel__seta');
 const primeiraImg_carrossel = document.querySelectorAll('.carrossel_img')[0];
 
 
-const carrossel2 = document.querySelector('.carrossel2__container');
-const setasUltimosLancamentos = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
-const primeiraImg2 = document.querySelectorAll('.produto')[0];
+const carrossel2 = document.querySelector('#carrossel__ultimos__lancamentos');
+const setasCarrossel2 = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
+const primeiraImg2 =  document.querySelector('.primeiraImg2'); //produto 1
 const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
 
-let isArrastoStart = false, prevPageX, prevScrollLeft, prevPageX2, prevScrollLeft2;
+
+
+const carrossel3 = document.querySelector('#carrossel__promo');
+const setasCarrossel3 = document.querySelectorAll('.promo__carrossel__seta');
+const primeiraImg3 =  document.querySelector('.primeiraImg3');
+
+let isArrastoStart = false, prevPageX, prevScrollLeft,  positionDiff2;
+// let prevPageX2, prevScrollLeft2;
 
 
 const mostrarSeta = (carrosselVar, setasBtnVar) =>{
@@ -50,47 +57,51 @@ const arrastoSeta = (carrosselVar, setasBtnVar, primeiraImg, diff) =>{
 
 arrastoSeta(carrossel, setasBtn, primeiraImg_carrossel, 15);
 
-arrastoSeta(carrossel2, setasUltimosLancamentos, primeiraImg2, 15);
+arrastoSeta(carrossel2, setasCarrossel2, primeiraImg2, 15);
 
-let positionDiff2;
+arrastoSeta(carrossel3, setasCarrossel3, primeiraImg3, 15);
 
 
 
-const autoSlide = ()=>{
 
-    if(carrossel2.scrollLeft == (carrossel2.scrollWidth - carrossel2.clientWidth)) return;
-    if(carrossel2.scrollLeft == (0)) return;
+const autoSlide = (carrosselVar)=>{
+
+    if(carrosselVar.scrollLeft == (carrosselVar.scrollWidth - carrosselVar.clientWidth)) return;
+    if(carrosselVar.scrollLeft == (0)) return;
     
     
     positionDiff2 = Math.abs(positionDiff2);
     let primeiraImg2Width = primeiraImg2.clientWidth +15;
     let valDifference = primeiraImg2Width - positionDiff2;
-    if(carrossel2.scrollLeft > prevScrollLeft2 ){
-        return carrossel2.scrollLeft += positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
+    if(carrosselVar.scrollLeft > prevScrollLeft ){
+        return carrosselVar.scrollLeft += positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
 
     }
-    carrossel2.scrollLeft -= positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
+    carrosselVar.scrollLeft -= positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
 }
 
-const arrastoStart = (e) =>{ 
+const arrastoStart = (e) =>{  //NAO TEM PQ MECHER AQUI ~~~~~~~~~~~~~~~~~~~~~~
     isArrastoStart = true;
     let elementoCarrossel = e.target.parentElement;
     
-
+  
     if(elementoCarrossel.classList.contains('carrossel__container')){
         prevPageX = e.pageX || e.touches[0].pageX;
         prevScrollLeft = elementoCarrossel.scrollLeft;
     }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
         let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
-        prevPageX2 = e.pageX || e.touches[0].pageX;
-        prevScrollLeft2 = elementoCarrossel2.scrollLeft;
-    }
-    
+        prevPageX = e.pageX || e.touches[0].pageX;
+        prevScrollLeft = elementoCarrossel2.scrollLeft;
+
+    }   
 }
+
 
 const arrasto = (e) => {
     if(!isArrastoStart) return;
     e.preventDefault();
+
+    console.log(e.target);
 
     let elementoCarrossel = e.target.parentElement;
     
@@ -105,11 +116,16 @@ const arrasto = (e) => {
     }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
 
         let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
+
         elementoCarrossel2.classList.remove("arrasto__seta");
         elementoCarrossel2.classList.add("arrasto__cursor");
-        positionDiff2 = (e.pageX || e.touches[0].pageX) - prevPageX2;
-        elementoCarrossel2.scrollLeft = prevScrollLeft2 - positionDiff2;
-        mostrarSeta(elementoCarrossel2, setasUltimosLancamentos);
+        positionDiff2 = (e.pageX || e.touches[0].pageX) - prevPageX;
+        elementoCarrossel2.scrollLeft = prevScrollLeft - positionDiff2;
+        if(elementoCarrossel2.classList.contains('carrossel3')){
+            mostrarSeta(elementoCarrossel2, setasCarrossel3);
+        }else{
+            mostrarSeta(elementoCarrossel2, setasCarrossel2);
+        }
     }
 }
 
@@ -124,7 +140,7 @@ const arrastoStop = (e) =>{
         elementoCarrossel2.classList.remove("arrasto__seta");
         elementoCarrossel2.classList.remove("arrasto__cursor");
         if(window.innerWidth<=550){
-            autoSlide();
+            autoSlide(elementoCarrossel2);
         }
     }
 }
@@ -139,8 +155,12 @@ const scrollWheel = (e) =>{
     }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
         let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
         elementoCarrossel2.classList.remove("arrasto__seta");
-        elementoCarrossel2.scrollLeft += e.deltaY;
-        mostrarSeta(elementoCarrossel2, setasUltimosLancamentos);
+        elementoCarrossel2.scrollLeft += e.deltaY;;
+        if(elementoCarrossel2.classList.contains('carrossel3')){
+            mostrarSeta(elementoCarrossel2, setasCarrossel3);
+        }else{
+            mostrarSeta(elementoCarrossel2, setasCarrossel2);
+        }
     }
 }
 
@@ -166,16 +186,15 @@ carrossel2.addEventListener("touchend", arrastoStop);
 
 carrossel2.addEventListener("wheel", scrollWheel);
 
+carrossel3.addEventListener("mousedown", arrastoStart);
+carrossel3.addEventListener("touchstart", arrastoStart);
+
+carrossel3.addEventListener("mousemove", arrasto);
+carrossel3.addEventListener("touchmove", arrasto);
+
+carrossel3.addEventListener("mouseup", arrastoStop);
+carrossel3.addEventListener("touchend", arrastoStop);
+
+carrossel3.addEventListener("wheel", scrollWheel);
+
 //carrossel menu fim
-
-//carrossel2
-
-
-
-
-
-
-
-
-
-//carrossel 2 fim
