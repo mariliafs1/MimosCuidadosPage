@@ -1,9 +1,11 @@
 .busca{
-    height: 90px;
-    width: 100%;
+    
+    max-width: 1400px;
+    
     background-color: var(--roxo);
     text-align: center;
     padding: 1.2rem 0;
+    margin: 0 auto;
     margin-top: 70px;
     
 }
@@ -40,7 +42,11 @@
 
 }
 
-
+.home{
+    max-width: 1400px;
+    text-align: center;
+    margin: 0 auto;
+}
 .home__background{
     width: 100%;  
 }

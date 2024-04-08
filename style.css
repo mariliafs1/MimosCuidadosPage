@@ -30,3 +30,7 @@ body{
 .arrasto__cursor{
     cursor: grabbing;
 }
+
+.arrasto__seta{
+    scroll-behavior: smooth; 
+}

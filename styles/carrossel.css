@@ -56,9 +56,7 @@
 
 
 
-.arrasto__seta{
-    scroll-behavior: smooth; 
-}
+
 
 .carrossel .carrossel__container::-webkit-scrollbar {
     width: 5px;

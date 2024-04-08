@@ -6,6 +6,8 @@
     background-color: var(--cinza);
     padding: 0px 10px;
     height: 500px;
+    max-width: 1400px;
+    margin: 0 auto;
 
 }
 
@@ -18,18 +20,29 @@
 }
 
 .carrossel2{
-    max-width: 900px;
+    max-width: 96%;
     white-space: nowrap;
     position: relative;
+    height: 300px;
+    
+}
+
+.carrossel2__wrapper2{
+    overflow-x: hidden;
+  
+    
 }
 
  .carrossel2__container{
     font-size: 0px;
-    cursor: pointer;
+    cursor: grab;
     overflow: hidden;
     overflow-x: scroll;
-    width: 70vw;
+    width: 900px;
     scroll-behavior: auto;
+    
+    
+    
 }
 
 
@@ -54,9 +67,11 @@
 
 .ultimos__lancamentos__carrossel__seta:first-child{
     left: -23px;
+ 
 }
 .ultimos__lancamentos__carrossel__seta:last-child{
     right: -23px;
+    
 }
 
 .carrossel2__container::-webkit-scrollbar {
@@ -65,6 +80,7 @@
     background-color: #aaa; 
     border-radius: 10px;
   }
+
  .carrossel2__container::-webkit-scrollbar-thumb {
     background: var(--roxo);
     border-radius: 10px;
@@ -174,9 +190,14 @@
 
 @media screen and (max-width: 900px){
     .produto{
-        width: calc(100%/2);
+        width: calc(100%/3);
+        
+    }
+    .carrossel2__container{
+        width: 100%;
     }
 }
+
 
 @media screen and (max-width: 550px){
     .produto{
@@ -184,6 +205,7 @@
     }
 
     .carrossel2__container{
-        width: 65vw;
+        width: 260px;
     }
+
 }

@@ -22,7 +22,13 @@ const carrossel = document.querySelector('.carrossel__container');
 const setasBtn = document.querySelectorAll('.carrossel__seta');
 const primeiraImg_carrossel = document.querySelectorAll('.carrossel_img')[0];
 
-let isArrastoStart = false, prevPageX, prevScrollLeft;
+
+const carrossel2 = document.querySelector('.carrossel2__container');
+const setasUltimosLancamentos = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
+const primeiraImg2 = document.querySelectorAll('.produto')[0];
+const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
+
+let isArrastoStart = false, prevPageX, prevScrollLeft, prevPageX2, prevScrollLeft2;
 
 
 const mostrarSeta = (carrosselVar, setasBtnVar) =>{
@@ -44,37 +50,98 @@ const arrastoSeta = (carrosselVar, setasBtnVar, primeiraImg, diff) =>{
 
 arrastoSeta(carrossel, setasBtn, primeiraImg_carrossel, 15);
 
+arrastoSeta(carrossel2, setasUltimosLancamentos, primeiraImg2, 15);
 
+let positionDiff2;
+
+
+
+const autoSlide = ()=>{
+
+    if(carrossel2.scrollLeft == (carrossel2.scrollWidth - carrossel2.clientWidth)) return;
+    if(carrossel2.scrollLeft == (0)) return;
+    
+    
+    positionDiff2 = Math.abs(positionDiff2);
+    let primeiraImg2Width = primeiraImg2.clientWidth +15;
+    let valDifference = primeiraImg2Width - positionDiff2;
+    if(carrossel2.scrollLeft > prevScrollLeft2 ){
+        return carrossel2.scrollLeft += positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
+
+    }
+    carrossel2.scrollLeft -= positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
+}
 
 const arrastoStart = (e) =>{ 
     isArrastoStart = true;
-    prevPageX = e.pageX || e.touches[0].pageX;
-    prevScrollLeft = carrossel.scrollLeft;
-    console.log(e);
-    console.log('aquit');
+    let elementoCarrossel = e.target.parentElement;
+    
+
+    if(elementoCarrossel.classList.contains('carrossel__container')){
+        prevPageX = e.pageX || e.touches[0].pageX;
+        prevScrollLeft = elementoCarrossel.scrollLeft;
+    }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
+        let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
+        prevPageX2 = e.pageX || e.touches[0].pageX;
+        prevScrollLeft2 = elementoCarrossel2.scrollLeft;
+    }
+    
 }
 
 const arrasto = (e) => {
     if(!isArrastoStart) return;
     e.preventDefault();
-    carrossel.classList.remove("arrasto__seta");
-    carrossel.classList.add("arrasto__cursor");
-    let positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
-    carrossel.scrollLeft = prevScrollLeft - positionDiff;
-    mostrarSeta(carrossel, setasBtn);
+
+    let elementoCarrossel = e.target.parentElement;
+    
+    if(elementoCarrossel.classList.contains('carrossel__container')){
+        
+        elementoCarrossel.classList.remove("arrasto__seta");
+        elementoCarrossel.classList.add("arrasto__cursor");
+        let positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+        elementoCarrossel.scrollLeft = prevScrollLeft - positionDiff;
+        mostrarSeta(e.target.parentElement, setasBtn);
+
+    }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
+
+        let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
+        elementoCarrossel2.classList.remove("arrasto__seta");
+        elementoCarrossel2.classList.add("arrasto__cursor");
+        positionDiff2 = (e.pageX || e.touches[0].pageX) - prevPageX2;
+        elementoCarrossel2.scrollLeft = prevScrollLeft2 - positionDiff2;
+        mostrarSeta(elementoCarrossel2, setasUltimosLancamentos);
+    }
 }
 
-const arrastoStop = () =>{
+const arrastoStop = (e) =>{
     isArrastoStart = false;
-    carrossel.classList.remove("arrasto__seta");
-    carrossel.classList.remove("arrasto__cursor");
+    let elementoCarrossel = e.target.parentElement;
+    if(elementoCarrossel.classList.contains('carrossel__container')){
+        elementoCarrossel.classList.remove("arrasto__seta");
+        elementoCarrossel.classList.remove("arrasto__cursor");
+    }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
+        let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
+        elementoCarrossel2.classList.remove("arrasto__seta");
+        elementoCarrossel2.classList.remove("arrasto__cursor");
+        if(window.innerWidth<=550){
+            autoSlide();
+        }
+    }
 }
 
 const scrollWheel = (e) =>{
     e.preventDefault();
-    carrossel.classList.remove("arrasto__seta");
-    carrossel.scrollLeft += e.deltaY;
-    mostrarSeta(carrossel, setasBtn);
+    let elementoCarrossel = e.target.parentElement;
+    if(elementoCarrossel.classList.contains('carrossel__container')){
+        elementoCarrossel.classList.remove("arrasto__seta");
+        elementoCarrossel.scrollLeft += e.deltaY;
+        mostrarSeta(elementoCarrossel, setasBtn);
+    }else if(elementoCarrossel.parentElement.parentElement.classList.contains('carrossel2__container')){
+        let elementoCarrossel2 = elementoCarrossel.parentElement.parentElement;
+        elementoCarrossel2.classList.remove("arrasto__seta");
+        elementoCarrossel2.scrollLeft += e.deltaY;
+        mostrarSeta(elementoCarrossel2, setasUltimosLancamentos);
+    }
 }
 
 carrossel.addEventListener("mousedown", arrastoStart);
@@ -88,77 +155,27 @@ carrossel.addEventListener("touchend", arrastoStop);
 
 carrossel.addEventListener("wheel", scrollWheel);
 
+carrossel2.addEventListener("mousedown", arrastoStart);
+carrossel2.addEventListener("touchstart", arrastoStart);
+
+carrossel2.addEventListener("mousemove", arrasto);
+carrossel2.addEventListener("touchmove", arrasto);
+
+carrossel2.addEventListener("mouseup", arrastoStop);
+carrossel2.addEventListener("touchend", arrastoStop);
+
+carrossel2.addEventListener("wheel", scrollWheel);
+
 //carrossel menu fim
 
 //carrossel2
 
-const carrossel2 = document.querySelector('.carrossel2__container');
-const setasUltimosLancamentos = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
-const primeiraImg2 = document.querySelectorAll('.produto')[0];
-const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
-
-let isArrastoStart2 = false,  prevPageX2, prevScrollLeft2, positionDiff2;
-
-arrastoSeta(carrossel2, setasUltimosLancamentos, primeiraImg2, 15);
-
-const autoSlide = ()=>{
-    positionDiff2 = Math.abs(positionDiff2);
-    let primeiraImg2Width = primeiraImg2.clientWidth +15;
-    let valDifference = primeiraImg2Width - positionDiff2;
-    if(carrossel2.scrollLeft > prevScrollLeft2 ){
-        return carrossel2.scrollLeft += positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
-
-    }
-
-    carrossel2.scrollLeft -= positionDiff2 > primeiraImg2Width/3 ? valDifference : -positionDiff2;
-}
-
-const arrastoStart2 = ( e) =>{
-    isArrastoStart2 = true;
-    prevPageX2 = e.pageX || e.touches[0].pageX;
-    prevScrollLeft2 = carrossel2.scrollLeft;
-    
-}
-
-const arrasto2 = (e) => {
-    if(!isArrastoStart2) return;
-    e.preventDefault();
-
-    carrossel2.classList.remove("arrasto__seta");
-    carrossel2.classList.add("arrasto__cursor");
-    positionDiff2 = (e.pageX || e.touches[0].pageX) - prevPageX2;
-    carrossel2.scrollLeft = prevScrollLeft2 - positionDiff2;
-    mostrarSeta(carrossel2, setasUltimosLancamentos);
-    
-}
-
-const arrastoStop2 = () =>{
-    isArrastoStart2 = false;
-    carrossel2.classList.remove("arrasto__seta");
-    carrossel2.classList.remove("arrasto__cursor");
-    if(window.innerWidth<= 550){
-        autoSlide();
-    }
-    
-}
 
 
-const scrollWheel2 = (e) =>{
-    e.preventDefault();
-    carrossel2.classList.remove("arrasto__seta");
-    carrossel2.scrollLeft += e.deltaY;
-    mostrarSeta(carrossel2, setasUltimosLancamentos);
-}
 
-carrossel2.addEventListener("mousedown", arrastoStart2);
-carrossel2.addEventListener("touchstart", arrastoStart2);
 
-carrossel2.addEventListener("mousemove", arrasto2);
-carrossel2.addEventListener("touchmove", arrasto2);
 
-carrossel2.addEventListener("mouseup", arrastoStop2);
-carrossel2.addEventListener("touchend", arrastoStop2);
 
-carrossel2.addEventListener("wheel", scrollWheel2);
+
 
 //carrossel 2 fim
