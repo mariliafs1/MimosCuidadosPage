@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css"> 
     <script src="./script.js" defer></script>
+    <script src="./script_footer.js" defer></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -73,7 +74,6 @@
                                 <div class="produto__infos-precos-botao">
                                     <div class="produto__infos-precos">
                                         <p class="produto__preco">R$ 39,99</p>
-                                        <!-- <p class="produto__preco-antigo">R$ 50,00</p> -->
                                     </div>
                                     <div class="produto__infos-botao">
                                         <button class="produto__botao">Adicionar à sacola</button>
@@ -159,7 +159,6 @@
             <img src="./img/banner_promocao.png" alt="">
         </div>
         <section class="carrossel2__wrapper carrossel__promocao">
-            <h1 class="titulo">Promoção</h1>
             <div class="carrossel2">
                     <div id="left" class="promo__carrossel__seta left"><img src="img/seta_esquerda.png" alt="" ></div>
                     <div class="carrossel2__wrapper2">
@@ -253,8 +252,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>    
-                
+                        </div>                   
                     </div>
                 </div>
                     <div id="right__carrossel2" class="promo__carrossel__seta"><img src="img/seta_direita.png" alt="" ></div>
@@ -274,10 +272,55 @@
                     <p>Fique por dentro das novidades</p>
                     <form name="news__letter">
                         <input type="email" placeholder="Digite seu e-mail">
-                        <button type="button" name="enviar"  class="botao_form">Cadastre-se</button>
+                        <button type="button" name="enviar"  class="botao__form">Cadastre-se</button>
                     </form>
                 </div>
             </div>    
-        </section> 
+        </section>
+        <footer>
+            <div class="footer">
+                <div class="footer__duvidas">
+                    <div class="footer__menu">
+                        <h2>Dúvidas</h2>
+                        <img src="./img/arrow_down.svg" alt="">
+                        <img src="./img/arrow_up.svg" alt="">
+                    </div>
+                    <ul>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                        <li><a href="#">Frete e Entrega</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="footer__marcas">
+                    <div class="footer__menu">
+                        <h2>Marcas</h2>
+                        <img src="./img/arrow_down.svg" alt="">
+                        <img src="./img/arrow_up.svg" alt="">
+
+                    </div>
+                    <ul>
+                        <li><a href="#">Água Perfumada</a></li>
+                        <li><a href="#">Amor de Pele</a></li>
+                        <li><a href="#">Make Make</a></li>
+                    </ul>
+                </div>
+                <div class="foorter__relacionamento__cliente">
+                    <div class="footer__menu">
+                        <h2>Fale Conosco</h2>
+                        <img src="./img/arrow_down.svg" alt="">
+                        <img class="" src="./img/arrow_up.svg" alt="">
+                    </div>
+                    <ul>
+                        <li><a href="#">e-mail</a></li>
+                        <li><a href="#">Whatsapp</a></li>
+                        <li><a href="#">Telefone</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="endereco">
+                <p>Av. Senhor Fulano de Tal, 000 - Bairro Sicrana da Silva Sauro - BRASIL</p>
+            </div>
+        </footer>
 </body>
 </html>
