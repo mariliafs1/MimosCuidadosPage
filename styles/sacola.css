@@ -1,11 +1,11 @@
-#sacola{
+.sacola{
     max-width: 1400px;
     text-align: center;
     margin: 90px auto;
     font-family: var(--fonte);
 }
 
-.sacola__produto__total{
+.sacola__itens{
     text-align: center;
     margin: 10px auto;
 }
@@ -65,7 +65,7 @@
 
 
 @media screen and (min-width: 1000px){
-    #sacola{
+    .sacola{
        margin: 30px;
        display: flex;
        justify-content: space-around;

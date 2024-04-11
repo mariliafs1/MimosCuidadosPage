@@ -58,8 +58,8 @@ footerMenu.forEach(menu =>{
     // setaDown.classList.add('seta_down');
     // setaDown.nhaiim = './img/arrow_down.svg';
     // menu.appendChild(setaDown)
-    console.log(menu);
-    console.log(menu.nhaiim);
+    // console.log(menu);
+    // console.log(menu.nhaiim);
 });
 
 footerMenu.forEach(menu => menu.addEventListener('click', () => toggleMenu(menu)));

@@ -1,0 +1,34 @@
+{
+    "produtos":[
+        {
+            "nome" : "Loção",
+            "preco": "R$ 39,90",
+            "imagem" : "./img/produto_oleo.png"
+        },
+        {
+            "nome" : "Palleta Sombras",
+            "preco": "R$ 89,99",
+            "imagem" : "./img/produto_plalleta_sombra.jpg"
+        },
+        {
+            "nome" : "Sabonete Líquido",
+            "preco": "R$ 19,99",
+            "imagem" : "./img/produto_buble_bath.jpg"
+        },
+        {
+            "nome" : "Sabonete Líquido",
+            "preco": "R$ 19,99",
+            "imagem" : "./img/produto_buble_bath.jpg"
+        },
+        {
+            "nome" : "Rímel",
+            "preco": "R$ 18,99",
+            "imagem" : "./img/produto_rimel.jpg"
+        },
+        {
+            "nome" : "Sabonete Barra",
+            "preco": "R$ 29,99",
+            "imagem" : "./img/produto_sabonete.jpg"
+        }
+    ]
+}

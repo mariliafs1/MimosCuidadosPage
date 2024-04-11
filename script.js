@@ -1,10 +1,5 @@
-//barra menu
-
-
-
-//fim barra menu
-
-
+//só pode aparecer depois que o carrossel foi criado pelo script_LocaStorage
+setTimeout(()=>{
 //carrossel menu inicio
 const carrossel = document.querySelector('.carrossel__container');
 const setasBtn = document.querySelectorAll('.carrossel__seta');
@@ -13,7 +8,7 @@ const primeiraImg_carrossel = document.querySelectorAll('.carrossel_img')[0];
 
 const carrossel2 = document.querySelector('#carrossel__ultimos__lancamentos');
 const setasCarrossel2 = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
-const primeiraImg2 =  document.querySelector('.primeiraImg2'); //produto 1
+ //produto 1
 const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
 
 
@@ -21,6 +16,7 @@ const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
 const carrossel3 = document.querySelector('#carrossel__promo');
 const setasCarrossel3 = document.querySelectorAll('.promo__carrossel__seta');
 const primeiraImg3 =  document.querySelector('.primeiraImg3');
+let primeiraImg2 =  document.querySelector('.primeiraImg2');
 
 let isArrastoStart = false, prevPageX, prevScrollLeft,  positionDiff2;
 // let prevPageX2, prevScrollLeft2;
@@ -33,6 +29,7 @@ const mostrarSeta = (carrosselVar, setasBtnVar) =>{
 }
 
 const arrastoSeta = (carrosselVar, setasBtnVar, primeiraImg, diff) =>{
+  
     setasBtnVar.forEach(seta =>{
         seta.addEventListener("click", ()=>{
             let primeiraImgWidth = primeiraImg.clientWidth + diff;
@@ -42,6 +39,8 @@ const arrastoSeta = (carrosselVar, setasBtnVar, primeiraImg, diff) =>{
         });
     });
 }
+
+
 
 arrastoSeta(carrossel, setasBtn, primeiraImg_carrossel, 15);
 
@@ -53,10 +52,10 @@ arrastoSeta(carrossel3, setasCarrossel3, primeiraImg3, 15);
 
 
 const autoSlide = (carrosselVar)=>{
+    let primeiraImg2 =  document.querySelector('.primeiraImg2');
 
     if(carrosselVar.scrollLeft == (carrosselVar.scrollWidth - carrosselVar.clientWidth)) return;
     if(carrosselVar.scrollLeft == (0)) return;
-    
     
     positionDiff2 = Math.abs(positionDiff2);
     let primeiraImg2Width = primeiraImg2.clientWidth +15;
@@ -89,7 +88,6 @@ const arrasto = (e) => {
     if(!isArrastoStart) return;
     e.preventDefault();
 
-    console.log(e.target);
 
     let elementoCarrossel = e.target.parentElement;
     
@@ -128,6 +126,7 @@ const arrastoStop = (e) =>{
         elementoCarrossel2.classList.remove("arrasto__seta");
         elementoCarrossel2.classList.remove("arrasto__cursor");
         if(window.innerWidth<=550){
+            console.log(elementoCarrossel2);
             autoSlide(elementoCarrossel2);
         }
     }
@@ -185,4 +184,5 @@ carrossel3.addEventListener("touchend", arrastoStop);
 
 carrossel3.addEventListener("wheel", scrollWheel);
 
+}, 1000);
 //carrossel menu fim
