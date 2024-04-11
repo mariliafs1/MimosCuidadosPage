@@ -1,33 +1,76 @@
 {
     "produtos":[
         {
+            "id":"1",
             "nome" : "Loção",
             "preco": "R$ 39,90",
             "imagem" : "./img/produto_oleo.png"
         },
         {
+            "id":"2",
             "nome" : "Palleta Sombras",
             "preco": "R$ 89,99",
             "imagem" : "./img/produto_plalleta_sombra.jpg"
         },
-        {
+        {   
+            "id":"3",
             "nome" : "Sabonete Líquido",
             "preco": "R$ 19,99",
             "imagem" : "./img/produto_buble_bath.jpg"
         },
         {
+            "id":"4",
             "nome" : "Sabonete Líquido",
             "preco": "R$ 19,99",
             "imagem" : "./img/produto_buble_bath.jpg"
         },
         {
+            "id":"5",
             "nome" : "Rímel",
             "preco": "R$ 18,99",
             "imagem" : "./img/produto_rimel.jpg"
         },
         {
+            "id":"6",
             "nome" : "Sabonete Barra",
             "preco": "R$ 29,99",
+            "imagem" : "./img/produto_sabonete.jpg"
+        }
+    ],
+    "promocoes":[
+        {
+            "id":"7",
+            "nome" : "Loção",
+            "preco": "R$ 39,90",
+            "precoAntigo": "R$ 50,00",
+            "imagem" : "./img/produto_oleo.png"
+        },
+        {
+            "id":"8",
+            "nome" : "Palleta Sombras",
+            "preco": "R$ 89,99",
+            "precoAntigo": "R$ 50,00",
+            "imagem" : "./img/produto_plalleta_sombra.jpg"
+        },
+        {
+            "id":"9",
+            "nome" : "Sabonete Líquido",
+            "preco": "R$ 19,99",
+            "precoAntigo": "R$ 50,00",
+            "imagem" : "./img/produto_buble_bath.jpg"
+        },
+        {
+            "id":"10",
+            "nome" : "Rímel",
+            "preco": "R$ 18,99",
+            "precoAntigo": "R$ 50,00",
+            "imagem" : "./img/produto_rimel.jpg"
+        },
+        {
+            "id":"11",
+            "nome" : "Sabonete Barra",
+            "preco": "R$ 29,99",
+            "precoAntigo": "R$ 50,00",
             "imagem" : "./img/produto_sabonete.jpg"
         }
     ]

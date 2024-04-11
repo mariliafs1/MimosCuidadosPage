@@ -2,7 +2,9 @@
 setTimeout(()=>{
 //carrossel menu inicio
 const carrossel = document.querySelector('.carrossel__container');
+
 const setasBtn = document.querySelectorAll('.carrossel__seta');
+
 const primeiraImg_carrossel = document.querySelectorAll('.carrossel_img')[0];
 
 
