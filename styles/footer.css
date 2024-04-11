@@ -2,7 +2,7 @@ footer{
     font-family: var(--fonte);
     text-align: center;
     margin: 0 auto;
-    padding: 10px;
+    padding: 10px 0px;
     max-width: 1400;
     background-color: var(--cinza-escuro);
     color: var(--cor-de-fundo);
@@ -14,7 +14,7 @@ footer{
     padding: 10px 0;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px;
+    
     opacity: 0.5;
 }
 

@@ -92,7 +92,7 @@
 
 .news__letter input:focus::placeholder{
     color: transparent;
-    text-align: 
+    text-align: center; /*aquii*/
 }
 
 .botao__form{

@@ -1,36 +1,69 @@
-const setas_up = document.querySelectorAll('.seta_up');
-const setas_down = document.querySelectorAll('.seta_down');
-
-const listas_menu = document.querySelectorAll('.footer ul');
 
 const footerMenu = document.querySelectorAll('.footer__menu');
 
-let isOpen = false;
-
-
-
 const handdleMenuList = () =>{
+    const setas_up = document.querySelectorAll('.seta_up');
+    const setas_down = document.querySelectorAll('.seta_down');
+
+    const listas_menu = document.querySelectorAll('.footer ul');
+
     setas_up.forEach(seta => seta.classList.add('hide')); 
     listas_menu.forEach(lista => lista.classList.add('hide'));
-
 }
 
-const toggleMenu = (menu) =>{
-    console.log(menu);
-
-    if(!menu.children[1].classList.contains('hide')){
-        menu.children[1].classList.add('hide');
-        menu.children[2].classList.remove('hide');
-        menu.nextElementSibling.classList.remove('hide');
+const toggleHide = (element) =>{    
+    if(!element.classList.contains('hide')){
+        element.classList.add('hide');
     }else{
-        menu.children[1].classList.remove('hide');
-        menu.children[2].classList.add('hide');
-        menu.nextElementSibling.classList.add('hide');
+        element.classList.remove('hide');
     }
 }
 
+const toggleMenu = (menu) =>{
+
+    for(let i=0; i<menu.parentElement.children.length; i++){
+        if(menu.parentElement.children[i].tagName==='UL'){
+            toggleHide(menu.parentElement.children[i])
+        }
+    }
+
+    for(let i=0; i<menu.children.length; i++){
+        if(menu.children[i].classList.contains('seta_down')){
+            toggleHide(menu.children[i]);
+        }
+        if(menu.children[i].classList.contains('seta_up')){
+            toggleHide(menu.children[i]);
+        }
+    }
+   
+}
+
+
+footerMenu.forEach(menu => { 
+    const setaUp = document.createElement('img');
+    setaUp.classList.add('seta_up');
+    setaUp.src = './img/arrow_up.svg';
+    menu.appendChild(setaUp)
+});
+
+footerMenu.forEach(menu =>{ 
+    const setaDown = document.createElement('img');
+    setaDown.classList.add('seta_down');
+    setaDown.src = './img/arrow_down.svg';
+    menu.appendChild(setaDown);
+});
+
+footerMenu.forEach(menu =>{ 
+    // const setaDown = document.createElement('h2');
+    // setaDown.classList.add('seta_down');
+    // setaDown.nhaiim = './img/arrow_down.svg';
+    // menu.appendChild(setaDown)
+    console.log(menu);
+    console.log(menu.nhaiim);
+});
 
 footerMenu.forEach(menu => menu.addEventListener('click', () => toggleMenu(menu)));
+
 handdleMenuList();
 
 
