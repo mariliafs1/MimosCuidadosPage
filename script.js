@@ -128,7 +128,6 @@ const arrastoStop = (e) =>{
         elementoCarrossel2.classList.remove("arrasto__seta");
         elementoCarrossel2.classList.remove("arrasto__cursor");
         if(window.innerWidth<=550){
-            console.log(elementoCarrossel2);
             autoSlide(elementoCarrossel2);
         }
     }

@@ -1,9 +1,31 @@
-let divProdutos = document.querySelector("#teste");
+
 let carrosselUltimosLancamentos = document.querySelector("#carrossel__ultimos__lancamentos")
 let carrosselPromo = document.querySelector("#carrossel__promo");
 
-let produtosArmazenados = []; 
-let promocoesArmazenadas = [];
+
+
+let carrinho = JSON.parse(localStorage.getItem('carrinho') ) || [];
+
+
+function atualizarCarrinho2 () {
+	localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
+}
+
+let produtosDisponiveis = []; 
+
+function adicionarCarrinho (e){
+    let produtoAtual = carrinho.find((produto) => produto[0].id === e.target.id);
+    if(produtoAtual == undefined){
+        carrinho.push(produtosDisponiveis.filter((produto) => produto.id === e.target.id));//remover ids metodos repetidos
+        atualizarCarrinho2();
+        
+    }else{
+        let posicaoProduto = carrinho.indexOf(produtoAtual);
+        carrinho[posicaoProduto][0].quantidade = `${parseInt(carrinho[posicaoProduto][0].quantidade) + 1}`
+        atualizarCarrinho2();
+       
+    }
+}
 
 fetch("dados.json").then((response) =>{
     response.json().then((dados) =>{
@@ -29,10 +51,11 @@ fetch("dados.json").then((response) =>{
                 id: produto.id,
                 nome: produto.nome,
                 preco: produto.preco,
-                imagem: produto.imagem
+                imagem: produto.imagem,
+                quantidade: `${parseInt(produto.quantidade) + 1}`
             }
-            produtosArmazenados.push(produtoArmazenado);
-            localStorage.setItem('produtosArmazenados', JSON.stringify(produtosArmazenados));
+            produtosDisponiveis.push(produtoArmazenado);
+
         })
         carrosselUltimosLancamentos.firstChild.nextSibling.classList.add("primeiraImg2");
         
@@ -60,13 +83,20 @@ fetch("dados.json").then((response) =>{
                 nome: promocao.nome,
                 preco: promocao.preco,
                 precoAntigo: promocao.precoAntigo,
-                imagem: promocao.imagem
+                imagem: promocao.imagem,
+                quantidade: `${parseInt(promocao.quantidade) + 1}`
             }
-            promocoesArmazenadas.push(promocaoArmazenada);
-            localStorage.setItem('promocoesArmazenadas', JSON.stringify(promocoesArmazenadas));
+            produtosDisponiveis.push(promocaoArmazenada);
         })
         carrosselPromo.firstChild.nextSibling.classList.add("primeiraImg3");
+
+        let produtoBtn = document.querySelectorAll('.produto__botao');
+        produtoBtn.forEach( btn => {
+            btn.addEventListener('click', (e)=> adicionarCarrinho(e))
+        })
     })
+
+    atualizarSubTotal();
 })
 
 

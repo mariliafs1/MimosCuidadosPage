@@ -10,6 +10,7 @@
     <script src="./script.js" defer></script>
     <script src="./script_menu.js" defer></script>
     <script src="./script_footer.js" defer></script>
+    <script src="./script_carrinho.js" defer></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -38,7 +39,7 @@
             </ul>
         </div>
     </header>
-    <section id="home">
+    <section id="home" class="hide">
         <div class="busca">
             <input type="search" class="busca__input" placeholder="Qual produto você procura?">
         </div>
@@ -107,23 +108,12 @@
     </section>
     <section id="sacola__id" class="sacola">
         <div class="sacola__itens">
-            <!-- <div class="sacola__produto__total">
-                <div class="sacola__produto">
-                    <img class="sacola__produto__img" src="./img/produto_oleo.png" alt="">
-                    <div class="sacola__produto__info">
-                        <h2>Produto Óleo</h2>
-                        <p>R$ 50,00</p>
-                    </div>
-                    <div class="lixo">
-                        <img src="./img/lixo.svg" alt="">
-                     </div> 
-                </div>
-            </div> -->
+            
         </div>
         <div class="sacola__finalizar">
             <div class="sacola__finalizar__subtotal">
                 <h2>SubTotal</h2>
-                <h2>R$ 100,00</h2>
+                <h2>R$ 0,00</h2>
             </div>
             <button class="finalizar__compra__sacola">FINZALIZAR COMPRA</button>
         </div>
