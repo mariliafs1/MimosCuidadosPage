@@ -1,30 +1,43 @@
+// localStorage.removeItem('carrinho')
+//script que lê o json para renderizar os produtos disponíveis dentro dos carrosseis de produtos da HOME
 
 let carrosselUltimosLancamentos = document.querySelector("#carrossel__ultimos__lancamentos")
 let carrosselPromo = document.querySelector("#carrossel__promo");
 
-
-
 let carrinho = JSON.parse(localStorage.getItem('carrinho') ) || [];
 
 
-function atualizarCarrinho2 () {
+let produtosDisponiveis = []; //ARMAZENA OS DADOS DO JSON INDICANDO UMA LISTA DE PRODUTOS DISPONÍVEIS NA LOJA
+
+function atualizarCarrinho() {
 	localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
 }
 
-let produtosDisponiveis = []; 
-
+//FUNÇAO QUE ADICIONA NOVO PRODUTO AO CARRINHO OU, CASO JÁ EXISTA, ALTERA A SUA QUANTIDADE E CHAMA A FUNÇÃO DE 
+//RENDERIZAÇÃO NA SACOLA
 function adicionarCarrinho (e){
-    let produtoAtual = carrinho.find((produto) => produto[0].id === e.target.id);
-    if(produtoAtual == undefined){
-        carrinho.push(produtosDisponiveis.filter((produto) => produto.id === e.target.id));//remover ids metodos repetidos
-        atualizarCarrinho2();
-        
+
+    let produtoSelecionado = produtosDisponiveis.find((produto) => produto.id === e.target.id);
+    let produtoJaExisteNoCarrinho = carrinho.find((produto) => produto.id == produtoSelecionado.id);
+   
+    if(produtoJaExisteNoCarrinho == undefined){
+        produtoSelecionado.quantidade = 1;
+        carrinho.push(produtoSelecionado); 
+        console.log('carrinhoJSON:',carrinho);
+        criarProdutoSacola(produtoSelecionado.nome, produtoSelecionado.preco, produtoSelecionado.imagem, produtoSelecionado.id, produtoSelecionado.quantidade);       
     }else{
-        let posicaoProduto = carrinho.indexOf(produtoAtual);
-        carrinho[posicaoProduto][0].quantidade = `${parseInt(carrinho[posicaoProduto][0].quantidade) + 1}`
-        atualizarCarrinho2();
-       
+        let indexDoProdutoSelecionado = carrinho.indexOf(produtoJaExisteNoCarrinho);
+        carrinho[indexDoProdutoSelecionado].quantidade = `${parseInt(produtoJaExisteNoCarrinho.quantidade) + 1}`; 
+        let sacolaProduto = document.querySelectorAll('.sacola__produto');
+        sacolaProduto.forEach(produto =>{
+            if(produto.id == produtoSelecionado.id){
+                produto.children[1].lastChild.lastChild.value = `${parseInt(produto.children[1].lastChild.lastChild.value)+1}`
+            }
+        })
+        
     }
+    atualizarCarrinho();
+    atualizarSubTotal();
 }
 
 fetch("dados.json").then((response) =>{
@@ -96,7 +109,6 @@ fetch("dados.json").then((response) =>{
         })
     })
 
-    atualizarSubTotal();
 })
 
 
