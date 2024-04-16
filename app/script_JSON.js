@@ -36,6 +36,7 @@ function adicionarCarrinho (e){
         })
         
     }
+    sacolaVaziaToggle();
     atualizarCarrinho();
     atualizarSubTotal();
 }

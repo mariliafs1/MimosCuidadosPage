@@ -17,19 +17,22 @@ overlay.onclick = function(){
 const home = document.querySelector('#home');
 const sacola = document.querySelector('#sacola__id');
 const sacolaIcon = document.querySelector('.cabecalho__icons__sacola');
+const homeIcon = document.querySelector('.cabecalho__icons__home');
 
 const trocarPaginaSacola = ()=>{
-
-    if(home.classList.contains('hide')){
-        home.classList.remove('hide');
-        sacola.classList.add('hide')
-        return;
-    }
 
     home.classList.add('hide');
     sacola.classList.remove('hide')
 }
 
+const trocarPaginaHome = ()=>{
+
+    home.classList.remove('hide');
+    sacola.classList.add('hide')
+  
+}
+
 sacolaIcon.addEventListener('click', trocarPaginaSacola);
+homeIcon.addEventListener('click', trocarPaginaHome);
 
 

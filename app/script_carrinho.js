@@ -4,16 +4,28 @@
 const finalizarSacolaBtn = document.querySelector('.finalizar__compra__sacola');
 const sacolaItens = document.querySelector('.sacola__itens');
 const lixoBtn = document.querySelectorAll('.lixo');
-
+const sacolaVazia = document.querySelector('.sacola__vazia');
 
 let carrinhoSacola = JSON.parse(localStorage.getItem('carrinho')) || [];
+console.log(carrinhoSacola);
+
 
 
 //INICIALIZAÇÃO DA SACOLA
 carrinhoSacola.forEach(produto => {
     criarProdutoSacola(produto.nome, produto.preco, produto.imagem, produto.id, produto.quantidade);
 });
+
 atualizarSubTotal();
+sacolaVaziaToggle();
+
+function sacolaVaziaToggle(){
+    if(carrinho.length == 0){
+        sacolaVazia.classList.remove('hide');    
+    }else{
+        sacolaVazia.classList.add('hide');
+    }
+}
 
 
 function atualizarSubTotal(){
@@ -44,9 +56,25 @@ function removeProduto(e){
     carrinho = carrinho.filter((produto) => (produto.id != seletor));
     console.log('carrinho:', carrinho);
     e.target.parentElement.parentElement.parentElement.remove();
+    sacolaVaziaToggle();
     atualizarSubTotal();
     atualizarCarrinho();
 }
+
+function atualizarSubTotal2(e){
+    atualizarSubTotal();
+    novaQuantidadeDoProduto = e.target.value;
+    idDoProduto = e.target.parentElement.parentElement.parentElement.id;
+
+    carrinho.forEach(produto =>{
+        if(produto.id==idDoProduto){
+            produto.quantidade = novaQuantidadeDoProduto;
+        }
+    })
+
+    atualizarCarrinho();
+}
+
 
 
 function criarProdutoSacola(nome, preco, imagem, id, quantidade){
@@ -72,6 +100,7 @@ function criarProdutoSacola(nome, preco, imagem, id, quantidade){
     const pSacolaProdutoInfo = document.createElement('p');
     const inputQuantidade = document.createElement('input');
     inputQuantidade.classList.add('sacola__produto__quantidade')
+    inputQuantidade.addEventListener("change", (e) =>atualizarSubTotal2(e))
 
     inputQuantidade.setAttribute('type', 'number');
     inputQuantidade.setAttribute('min', '1');

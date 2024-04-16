@@ -6,15 +6,25 @@
 }
 
 .sacola__itens{
-    text-align: center;
-    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    /* padding: 0 5px; */
+}
+
+.sacola__vazia{
+    border: 2px solid var(--cinza);
+    width: 375px;
+    padding: 30px;
+    font-size: 20px;
 }
 .sacola__produto__total{
     display: flex;
     flex-direction: column;
     border: 2px solid var(--cinza);
     border-radius: 10px;
-    max-width: 400px;
+    width: 375px;
 }
 
 .sacola__produto{
@@ -42,10 +52,6 @@
     gap: 20px;
 }
 
-.sacola__produto__info p{
-    
-}
-
 .sacola__produto__info input{
    width: 45px;
    height: 40px;
@@ -54,7 +60,6 @@
    border: 1px solid var(--roxo);
    border-radius: 5px;
 }
-
 
 
 .lixo{
@@ -82,12 +87,30 @@
     margin-bottom: 20px;
 }
 
+.finalizar__compra__sacola{
+    background-color: var(--roxo);
+    border: none;
+    color: var(--cor-de-fundo);
+    padding: 8px;
+    border-radius: 8px;
+    opacity: 0.8;
+    transition: 0.5s;
+    font-size: 16px;
+    cursor: pointer;
+}
+.finalizar__compra__sacola:hover{
+    opacity: 1;
+}
+
 
 @media screen and (min-width: 1000px){
     .sacola{
-       margin: 30px;
+    
        display: flex;
        justify-content: space-around;
+       align-items: center;
+       /* flex-direction: column; */
+       margin: 30px auto;
     }
 
     .sacola__itens{
@@ -98,6 +121,8 @@
         padding: 0 0 0;
         margin: 10px 0;
         border: 1px solid var(--cinza);
+        width: 400pc;
+        border: none;
     }
 
 }
