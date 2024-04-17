@@ -3,7 +3,7 @@ footer{
     text-align: center;
     margin: 0 auto;
     padding: 10px 0px;
-    max-width: 1400;
+    max-width: 1400px;
     background-color: var(--cinza-escuro);
     color: var(--cor-de-fundo);
 }

@@ -1,6 +1,6 @@
-//só pode aparecer depois que o carrossel foi criado pelo script_LocaStorage
+//só pode aparecer depois que o carrossel foi criado pelo script_JSON
 setTimeout(()=>{
-//carrossel menu inicio
+
 const carrossel = document.querySelector('.carrossel__container');
 
 const setasBtn = document.querySelectorAll('.carrossel__seta');
@@ -10,9 +10,6 @@ const primeiraImg_carrossel = document.querySelectorAll('.carrossel_img')[0];
 
 const carrossel2 = document.querySelector('#carrossel__ultimos__lancamentos');
 const setasCarrossel2 = document.querySelectorAll('.ultimos__lancamentos__carrossel__seta');
- //produto 1
-const primeiraImgProduto = document.querySelectorAll('.produto__img')[0];
-
 
 
 const carrossel3 = document.querySelector('#carrossel__promo');

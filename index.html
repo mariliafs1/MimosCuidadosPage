@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css"> 
     <script src="./app/script_JSON.js" defer></script>
-    <script src="./app/script.js" defer></script>
+    <script src="./app/script_carrossel.js" defer></script>
     <script src="./app/script_menu.js" defer></script>
     <script src="./app/script_footer.js" defer></script>
     <script src="./app/script_carrinho.js" defer></script>
+    <script src="./app/buscarProduto.js" defer></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -40,13 +41,15 @@
             </ul>
         </div>
     </header>
-    <section id="home">
-        <div class="busca">
-            <input type="search" class="busca__input" placeholder="Qual produto você procura?">
+    <section class="busca">
+        <input type="search" class="busca__input" placeholder="Qual produto você procura?">
+        <div class="busca__produto__filtrado">
+            
         </div>
-        <section class="home">
-            <img  src="./img/banner.png" class="home__background">
-        </section>
+    </section>
+    <section id="home">
+        <img src="./img/banner.png" class="home__background">
+   
         <section class="carrossel__wrapper">
             <div class="carrossel">
                 <div id="left" class="carrossel__seta left"><img src="img/seta_esquerda.png" alt="" ></div>

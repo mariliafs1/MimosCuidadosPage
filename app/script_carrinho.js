@@ -135,8 +135,3 @@ function criarProdutoSacola(nome, preco, imagem, id, quantidade){
 }
 
 
-// carrinhoSacola.forEach(produto => {
-//     criarProdutoSacola(produto.nome, produto.preco, produto.imagem, produto.id, produto.quantidade);
-// });
-
-// atualizarSubTotal();

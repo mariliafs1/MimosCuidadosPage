@@ -16,6 +16,7 @@ function atualizarCarrinho() {
 //FUNÇAO QUE ADICIONA NOVO PRODUTO AO CARRINHO OU, CASO JÁ EXISTA, ALTERA A SUA QUANTIDADE E CHAMA A FUNÇÃO DE 
 //RENDERIZAÇÃO NA SACOLA
 function adicionarCarrinho (e){
+    console.log('nhaiim')
 
     let produtoSelecionado = produtosDisponiveis.find((produto) => produto.id === e.target.id);
     let produtoJaExisteNoCarrinho = carrinho.find((produto) => produto.id == produtoSelecionado.id);
