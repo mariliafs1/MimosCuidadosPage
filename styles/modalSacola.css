@@ -1,0 +1,45 @@
+.modal__sacola__container{
+    background: rgba(0, 0, 0, 0.2);
+
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+   
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.modal__sacola{
+    background-color: var(--cor-de-fundo);
+    width: 0px;
+    height: 0px;
+    
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 #00000070;
+
+    overflow: hidden;
+    transition: width 0.15s, heigth 0.15s;
+}
+
+.modal__sacola__show > .modal__sacola{
+    width: 250px;
+    height: 150px;
+
+}
+
+.modal__sacola__show{
+    opacity: 1;
+    pointer-events: auto;
+}

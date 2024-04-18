@@ -41,6 +41,7 @@ function adicionarCarrinho (e){
     sacolaVaziaToggle();
     atualizarCarrinho();
     atualizarSubTotal();
+    openModal();
 }
 
 fetch("dados.json").then((response) =>{

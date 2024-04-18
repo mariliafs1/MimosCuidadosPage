@@ -16,7 +16,7 @@ carrinhoSacola.forEach(produto => {
     criarProdutoSacola(produto.nome, produto.preco, produto.imagem, produto.id, produto.quantidade);
 });
 
-iconAlteraNumeroDeProdutosSacola()
+iconAlteraNumeroDeProdutosSacola();
 atualizarSubTotal();
 sacolaVaziaToggle();
 
@@ -63,7 +63,7 @@ function removeProduto(e){
     iconAlteraNumeroDeProdutosSacola();
 }
 
-function atualizarSubTotal2(e){
+function atualizarSubTotalInputTexto(e){
     atualizarSubTotal();
     novaQuantidadeDoProduto = e.target.value;
     idDoProduto = e.target.parentElement.parentElement.parentElement.id;
@@ -73,8 +73,9 @@ function atualizarSubTotal2(e){
             produto.quantidade = novaQuantidadeDoProduto;
         }
     })
-
+    
     atualizarCarrinho();
+    iconAlteraNumeroDeProdutosSacola();
 }
 
 
@@ -102,7 +103,7 @@ function criarProdutoSacola(nome, preco, imagem, id, quantidade){
     const pSacolaProdutoInfo = document.createElement('p');
     const inputQuantidade = document.createElement('input');
     inputQuantidade.classList.add('sacola__produto__quantidade')
-    inputQuantidade.addEventListener("change", (e) =>atualizarSubTotal2(e))
+    inputQuantidade.addEventListener("change", (e) =>atualizarSubTotalInputTexto(e))
 
     inputQuantidade.setAttribute('type', 'number');
     inputQuantidade.setAttribute('min', '1');
