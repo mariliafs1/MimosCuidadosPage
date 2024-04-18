@@ -16,6 +16,7 @@ carrinhoSacola.forEach(produto => {
     criarProdutoSacola(produto.nome, produto.preco, produto.imagem, produto.id, produto.quantidade);
 });
 
+iconAlteraNumeroDeProdutosSacola()
 atualizarSubTotal();
 sacolaVaziaToggle();
 
@@ -59,6 +60,7 @@ function removeProduto(e){
     sacolaVaziaToggle();
     atualizarSubTotal();
     atualizarCarrinho();
+    iconAlteraNumeroDeProdutosSacola();
 }
 
 function atualizarSubTotal2(e){

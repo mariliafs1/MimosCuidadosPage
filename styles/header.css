@@ -32,7 +32,6 @@
     gap: 10px;
     position: relative;
     width: calc(100%/10);
-    
 }
 
 .cabecalho_icons img{
@@ -42,6 +41,31 @@
     height: 35px;
     opacity: 0.8;
     transition: 0.3s;
+}
+
+.cabecalho__icons__sacola{
+    position: relative;
+}
+
+.numero__produtos__sacola{
+    background-color: red;
+    font-family: var(--fonte);
+    font-size: 15px;
+    color: white;
+    width: 18px;
+    height: 18px;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    margin: 0px auto;
+    padding: 2px 0;
+    border-radius: 8px;
+    left: 22px;
+
+}
+
+.numero__produtos__sacola:modal{
+    background-color: blue;
 }
 
 .cabecalho__menu-hamburguer{
@@ -117,12 +141,18 @@
     display: none;
 }
 
+
+/* #dialog{
+    border-radius: 10px;
+    transition: 2s;
+    transform: scale(2);
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal
+    animation-delay: 1s;
+    opacity: 1;
+} */
+
 @media screen and (min-width: 850px){
-    .cabecalho{
-        position: static;
-        width: 100%;
-        top: 0;
-    }
+    
 
 }
 

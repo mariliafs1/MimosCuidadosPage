@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="style.css"> 
     <script src="./app/script_JSON.js" defer></script>
     <script src="./app/script_carrossel.js" defer></script>
-    <script src="./app/script_menu.js" defer></script>
     <script src="./app/script_footer.js" defer></script>
-    <script src="./app/script_carrinho.js" defer></script>
+    <script src="./app/header.js" defer></script>
     <script src="./app/buscarProduto.js" defer></script>
+    <script src="./app/script_carrinho.js" defer></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -28,7 +28,7 @@
         <div class="cabecalho_icons">
             <a href="#"><img class="cabecalho__icons__home" src="img/home.svg" alt="icone de coração"></a>
             <a href="#"><img src="img/coracao.png" alt="icone de coração"></a>
-            <a href="#" class="cabecalho__icons__sacola"><img src="img/bolsa.png" alt="icone de bolsa"></a>
+            <a href="#" class="cabecalho__icons__sacola"><div class="numero__produtos__sacola">0</div><img src="img/bolsa.png" alt="icone de bolsa"></a>
             <a href="#"><img src="img/user.png" alt="icone de usuário"></a>
             <input type="checkbox" id="menu" class="cabecalho_botao">
             <label for="menu" class="menu">
@@ -47,6 +47,10 @@
             
         </div>
     </section>
+    <!-- <div class="modal">
+        <dialog id="dialog">Item adicionado à sacola!</dialog>
+    </div>
+    <button class="teste">ihu</button> -->
     <section id="home">
         <img src="./img/banner.png" class="home__background">
    
