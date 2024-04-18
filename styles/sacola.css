@@ -2,7 +2,7 @@
     max-width: 1400px;
     text-align: center;
     margin: 90px auto;
-    font-family: var(--fonte);
+
 }
 
 .sacola__itens{
@@ -110,7 +110,7 @@
        justify-content: space-around;
        align-items: center;
        /* flex-direction: column; */
-       margin: 30px auto;
+       margin: 90px auto;
     }
 
     .sacola__itens{

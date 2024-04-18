@@ -15,7 +15,6 @@
     background-color: transparent;
     border: 1px solid var(--cor-de-fundo);
     color: var(--cor-de-fundo);
-    font-family: var(--fonte);
     border-radius: 32px;
     padding: 0.6rem;
     width: 350px;
@@ -91,7 +90,7 @@
         height: 50vh;
    }
    .busca__produto__filtrado .produto{
-    width: 200px;
-    margin-left: 0;
-}
+        width: 200px;
+        margin-left: 0;
+    }
 }

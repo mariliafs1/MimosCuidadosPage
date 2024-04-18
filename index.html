@@ -30,7 +30,7 @@
             <a href="#"><img class="cabecalho__icons__home" src="img/home.svg" alt="icone de coração"></a>
             <a href="#"><img src="img/coracao.png" alt="icone de coração"></a>
             <a href="#" class="cabecalho__icons__sacola"><div class="numero__produtos__sacola">0</div><img src="img/bolsa.png" alt="icone de bolsa"></a>
-            <a href="#"><img src="img/user.png" alt="icone de usuário"></a>
+            <a href="#"><img class="cabecalho__icons__login" src="img/user.png" alt="icone de usuário"></a>
             <input type="checkbox" id="menu" class="cabecalho_botao">
             <label for="menu" class="menu">
                 <span class="cabecalho__menu-hamburguer"></span>
@@ -48,20 +48,14 @@
             
         </div>
     </section>
-    <!-- <div class="modal">
-        <dialog id="dialog">Item adicionado à sacola!</dialog>
-    </div>
-    <button class="teste">ihu</button> -->
-    <!-- <button class="open__modal">abrir modal</button> -->
-    <div class="modal__sacola__container modal__sacola__show">
+    <div class="modal__sacola__container">
         <div class="modal__sacola">
-            Item adicionado à sacola!
+            <p>Item adicionado à sacola!</p>
             <button class="modalBtn__sacola__close">Fechar</button> 
         </div>
     </div>
-    <section id="home">
+    <section id="home" class="">
         <img src="./img/banner.png" class="home__background">
-   
         <section class="carrossel__wrapper">
             <div class="carrossel">
                 <div id="left" class="carrossel__seta left"><img src="img/seta_esquerda.png" alt="" ></div>
@@ -131,8 +125,23 @@
                 <h2>SubTotal</h2>
                 <h2>R$ 0,00</h2>
             </div>
-            <button class="finalizar__compra__sacola">FINZALIZAR COMPRA</button>
+            <button class="finalizar__compra__sacola">FINALIZAR COMPRA</button>
         </div>
+    </section>
+    <section class="login hide">
+        <h1>Faça seu login e acompanhe seus pedidos.</h1>
+        <form >
+            <h2>IDENTIFIQUE-SE</h2>
+            <label> E-mail:
+                <input type="email" placeholder='Digite o seu e-mail...'>
+            </label>
+            <label> Senha:
+                <input type="email" placeholder='Digite a sua senha...'>
+                <p>Esqueci minha senha</p>
+            </label>
+            <input type="submit" value="ENTRAR" class="login__btn__entrar">
+        </form>
+        <button>QUERO ME CADASTRAR</button>
     </section>
     <footer>
         <div class="footer">

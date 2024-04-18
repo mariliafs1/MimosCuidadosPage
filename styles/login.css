@@ -1,0 +1,96 @@
+.login{
+    margin: 70px auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.login h1{
+    font-size: 25px;
+    color: var(--cinza-escuro);
+    line-height: 32px;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.login form h2{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.login form label{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.login input, .login button{
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--cinza) ;
+    border-radius: 5px;
+    font-family: var(--fonte);
+    padding: 12px;
+}
+
+.login input::placeholder{
+    font-family: var(--fonte);
+    
+}
+
+
+.login input:focus::placeholder{
+    color: transparent;
+}
+
+
+
+.login form p{
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+    color: var(--roxo);
+    font-size: 12px;
+    text-align: end;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.login__btn__entrar, .login button, .login h2{
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.login__btn__entrar{
+    background-color: var(--roxo);
+    color: var(--cor-de-fundo);
+    border: none;
+    opacity: 0.8;
+}
+
+.login__btn__entrar:hover{
+   opacity: 1;
+}
+
+.login button:hover{
+    background-color: var(--cinza-escuro);
+    color: var(--cor-de-fundo);
+}
+
+@media screen and (min-width: 850px){
+    .login form, .login button{
+        width: 500px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+}

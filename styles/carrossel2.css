@@ -13,7 +13,6 @@
 .titulo{
     margin-bottom: 40px;
     font-size: 32px;
-    font-family: var(--fonte);
     color: var(--roxo);
     font-weight: 400;
 }
@@ -87,7 +86,6 @@
     text-align: center;
     border-radius: 12px;
     background-color: var(--rosa);
-    font-family: var(--fonte);
     width: calc(100%/4);
     margin-left: 14px;
 }
@@ -153,9 +151,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
-.produto__add-sacola{
-    font-family: var(--fonte);
-}
+
 .produto__preco{
     font-weight: 600;
 }

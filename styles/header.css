@@ -7,9 +7,10 @@
     position: fixed;
     z-index: 2;
     background-color: var(--cor-de-fundo);
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     top: 0;
+    max-width: 1400px;
 }
 
 .logo{
@@ -49,7 +50,6 @@
 
 .numero__produtos__sacola{
     background-color: red;
-    font-family: var(--fonte);
     font-size: 15px;
     color: white;
     width: 18px;
@@ -122,7 +122,6 @@
 
 .lista-menu__itens{
     text-decoration: none;
-    font-family: var(--fonte);
     padding: 15px;
 }
 
@@ -171,7 +170,6 @@
         margin: 0 auto;
         gap: 24px;
         font-size: 20px;
-        font-family: var(--fonte);
     }
 
     .lista__menu__aberto a:hover{
@@ -180,10 +178,15 @@
         transition: 0.3s;
     }
     .cabecalho{
-        max-width: 1400px;
+        
+        margin: 0 auto;
+        text-align: center;
     }
 }
 
-@media screen and (max-width: 1728px){
-   
+@media screen and (min-width: 1400px){
+  
+    .cabecalho{      
+        left: calc((100% - 1400px)/2);       
+    }
 }

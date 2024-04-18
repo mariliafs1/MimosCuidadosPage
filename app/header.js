@@ -7,15 +7,11 @@ const sacola = document.querySelector('#sacola__id');
 const sacolaIcon = document.querySelector('.cabecalho__icons__sacola');
 const homeIcon = document.querySelector('.cabecalho__icons__home');
 const numeroDeProdutosNaSacola = document.querySelector('.numero__produtos__sacola');
-// const modal = document.querySelector('#dialog');
-// const teste = document.querySelector('.teste');
-
-// teste.addEventListener('click', ()=>{
-//     modal.showModal();
-//     setTimeout(()=>{
-//         modal.close();
-//     }, 600)
-// })
+const listaMenuAberto = document.querySelector('.lista__menu__aberto');
+const menuHamburguer = document.querySelector('.cabecalho__menu-hamburguer');
+const busca = document.querySelector('.busca');
+const login = document.querySelector('.login');
+const loginIcon = document.querySelector('.cabecalho__icons__login')
 
 
 
@@ -36,12 +32,30 @@ const trocarPaginaSacola = ()=>{
 
     home.classList.add('hide');
     sacola.classList.remove('hide')
+    listaMenuAberto.classList.add('hide');
+    menuHamburguer.classList.add('hide')
+    busca.classList.add('hide');
+    login.classList.add('hide');
 }
 
 const trocarPaginaHome = ()=>{
 
     home.classList.remove('hide');
     sacola.classList.add('hide')
+    listaMenuAberto.classList.remove('hide');
+    menuHamburguer.classList.remove('hide');
+    busca.classList.remove('hide');
+    login.classList.add('hide');
+  
+}
+const trocarPaginaLogin = ()=>{
+
+    home.classList.add('hide');
+    sacola.classList.add('hide')
+    listaMenuAberto.classList.add('hide');
+    menuHamburguer.classList.add('hide');
+    busca.classList.add('hide');
+    login.classList.remove('hide');
   
 }
 
@@ -55,5 +69,6 @@ function iconAlteraNumeroDeProdutosSacola(){
 
 sacolaIcon.addEventListener('click', trocarPaginaSacola);
 homeIcon.addEventListener('click', trocarPaginaHome);
+loginIcon.addEventListener('click', trocarPaginaLogin);
 
 console.log(numeroDeProdutosNaSacola.textContent);
