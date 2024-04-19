@@ -28,7 +28,7 @@
         </ul>
         <div class="cabecalho_icons">
             <a href="#"><img class="cabecalho__icons__home" src="img/home.svg" alt="icone de coração"></a>
-            <a href="#"><img src="img/coracao.png" alt="icone de coração"></a>
+            <a href="#" class="cabecalho__icons__favoritos"><div class="numero__produtos__favoritos">0</div><img src="img/coracao.png" alt="icone de coração"></a>
             <a href="#" class="cabecalho__icons__sacola"><div class="numero__produtos__sacola">0</div><img src="img/bolsa.png" alt="icone de bolsa"></a>
             <a href="#"><img class="cabecalho__icons__login" src="img/user.png" alt="icone de usuário"></a>
             <input type="checkbox" id="menu" class="cabecalho_botao">
@@ -42,7 +42,7 @@
             </ul>
         </div>
     </header>
-    <section class="busca">
+    <section class="busca hide">
         <input type="search" class="busca__input" placeholder="Qual produto você procura?">
         <div class="busca__produto__filtrado">
             
@@ -54,7 +54,7 @@
             <button class="modalBtn__sacola__close">Fechar</button> 
         </div>
     </div>
-    <section id="home" class="">
+    <section id="home" class="hide">
         <img src="./img/banner.png" class="home__background">
         <section class="carrossel__wrapper">
             <div class="carrossel">
@@ -115,6 +115,12 @@
                     </div>
                 </div>    
             </section>
+    </section>
+    <section class="favoritos">
+        <h1>SEUS MIMOS MAIS QUERIDOS</h1>
+        <div class="favoritos__itens">
+
+        </div>
     </section>
     <section id="sacola__id" class="sacola hide">
         <div class="sacola__itens">

@@ -1,4 +1,5 @@
-//Cria e atualizar os itens da Sacola
+//Cria e atualizar os itens da Sacola e dos Favoritos
+
 
 
 const finalizarSacolaBtn = document.querySelector('.finalizar__compra__sacola');
@@ -13,12 +14,54 @@ console.log(carrinhoSacola);
 
 //INICIALIZAÇÃO DA SACOLA
 carrinhoSacola.forEach(produto => {
-    criarProdutoSacola(produto.nome, produto.preco, produto.imagem, produto.id, produto.quantidade);
+    if(parseInt(produto.quantidade) > 0){
+        criarProdutoSacola(produto.nome, produto.preco, produto.imagem, produto.id, produto.quantidade);
+    }
 });
+
+
 
 iconAlteraNumeroDeProdutosSacola();
 atualizarSubTotal();
 sacolaVaziaToggle();
+atualizarRenderizacaoFavoritos();
+
+function atualizarRenderizacaoFavoritos(){
+    let favoritosItens = document.querySelector('.favoritos__itens');
+    favoritosItens.innerHTML = "";
+    favoritos.forEach(produto=>{
+        criarProdutoFavorito(produto);     
+    })
+    iconAlteraNumeroDeProdutosFavoritados();
+
+}
+
+function criarProdutoFavorito(produto){
+    let favoritosItens = document.querySelector('.favoritos__itens');
+    
+    favoritosItens.innerHTML += `<div class="produto">
+        <div class="produto__img__container"><img src=${produto.imagem} alt="" class="produto__img"></div>
+        <div class="produto__infos">
+            <div class="produto__nome__favoritar">
+                <p>${produto.nome}</p>
+                <div class="produto__favoritar"><img id=${produto.id} src="./img/coracao.png" alt=""></div>
+            </div>
+            <div class="produto__infos-precos-botao">
+                <div class="produto__infos-precos">
+                    <p class="produto__preco">${produto.preco}</p>
+                </div>
+                <div class="produto__infos-botao">
+                    <button id=${produto.id} class="produto__botao">Adicionar à sacola</button>
+                </div>
+            </div>
+        </div>
+    </div>  `
+
+    let btnCoracao = favoritosItens.querySelector('.produto__favoritar');
+    btnCoracao.addEventListener('click', (e) => toggleFavoritos(e));
+
+}
+
 
 function sacolaVaziaToggle(){
     if(carrinho.length == 0){

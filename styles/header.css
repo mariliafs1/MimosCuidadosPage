@@ -44,11 +44,11 @@
     transition: 0.3s;
 }
 
-.cabecalho__icons__sacola{
+.cabecalho__icons__sacola, .cabecalho__icons__favoritos{
     position: relative;
 }
 
-.numero__produtos__sacola{
+.numero__produtos__sacola, .numero__produtos__favoritos{
     background-color: red;
     font-size: 15px;
     color: white;

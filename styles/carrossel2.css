@@ -125,19 +125,21 @@
 .produto__nome__favoritar img{
     height: 28px;
     object-fit: auto;
-    opacity: 0.5;
+    
     padding-right: 16px;
     transition: 0.5s;
 }
+
 
 .produto__nome__favoritar img:hover{
     opacity: 1;
     transform: scale(1.1);
 }
 
-.produto__nome__favoritar__ativo{
-    opacity: 1;
+.produto__nome__favoritar__desativado{
+    opacity: 0.5;
 }
+
 
 .produto__infos-precos-botao{
     display: flex;

@@ -5,6 +5,8 @@ let carrosselUltimosLancamentos = document.querySelector("#carrossel__ultimos__l
 let carrosselPromo = document.querySelector("#carrossel__promo");
 
 let carrinho = JSON.parse(localStorage.getItem('carrinho') ) || [];
+let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
 
 
 let produtosDisponiveis = []; //ARMAZENA OS DADOS DO JSON INDICANDO UMA LISTA DE PRODUTOS DISPONÍVEIS NA LOJA
@@ -13,18 +15,19 @@ function atualizarCarrinho() {
 	localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
 }
 
+function atualizarFavoritos(){
+    localStorage.setItem('favoritos', JSON.stringify(favoritos)); 
+}
+
 //FUNÇAO QUE ADICIONA NOVO PRODUTO AO CARRINHO OU, CASO JÁ EXISTA, ALTERA A SUA QUANTIDADE E CHAMA A FUNÇÃO DE 
 //RENDERIZAÇÃO NA SACOLA
 function adicionarCarrinho (e){
-    console.log('nhaiim')
-
     let produtoSelecionado = produtosDisponiveis.find((produto) => produto.id === e.target.id);
     let produtoJaExisteNoCarrinho = carrinho.find((produto) => produto.id == produtoSelecionado.id);
    
     if(produtoJaExisteNoCarrinho == undefined){
         produtoSelecionado.quantidade = 1;
         carrinho.push(produtoSelecionado); 
-        console.log('carrinhoJSON:',carrinho);
         criarProdutoSacola(produtoSelecionado.nome, produtoSelecionado.preco, produtoSelecionado.imagem, produtoSelecionado.id, produtoSelecionado.quantidade);       
     }else{
         let indexDoProdutoSelecionado = carrinho.indexOf(produtoJaExisteNoCarrinho);
@@ -44,6 +47,39 @@ function adicionarCarrinho (e){
     openModal();
 }
 
+function toggleFavoritos(e){
+    let produtoSelecionado = produtosDisponiveis.find((produto) => produto.id === e.target.id);
+    let produtoJaExisteNosFavoritos = favoritos.find((produto) => produto.id == produtoSelecionado.id);
+    console.log(e.target);
+    if (produtoJaExisteNosFavoritos == undefined){
+        produtoSelecionado.favorito = 'true';
+        favoritos.push(produtoSelecionado);
+    }else{
+        produtoSelecionado.favorito = 'false'
+        let indexDoProdutoSelecionado = favoritos.indexOf(produtoJaExisteNosFavoritos);
+        favoritos.splice(indexDoProdutoSelecionado, 1);
+    }
+    atualizarFavoritos();
+    toggleCoracaoCor(e.target);
+    atualizarRenderizacaoFavoritos();
+}
+
+function toggleCoracaoCor(coracao){
+    let coracaoProdutos = document.querySelectorAll('.produto__favoritar');
+    let coracaoProdutosArray = Array.from(coracaoProdutos);
+    let coracaoClicado = coracaoProdutosArray.filter((produto) => (produto.firstChild.id == coracao.id ))
+    coracaoClicado.forEach((produto)=>{
+        console.log('nhaqui', produto.firstChild)
+        if(produto.firstChild.classList.contains('produto__nome__favoritar__desativado')){
+            produto.firstChild.classList.remove('produto__nome__favoritar__desativado');
+        }else{
+            produto.firstChild.classList.add('produto__nome__favoritar__desativado');
+        }
+    })
+    
+
+}
+
 fetch("dados.json").then((response) =>{
     response.json().then((dados) =>{
         dados.produtos.map((produto) =>{
@@ -52,7 +88,7 @@ fetch("dados.json").then((response) =>{
                 <div class="produto__infos">
                     <div class="produto__nome__favoritar">
                         <p>${produto.nome}</p>
-                        <div class="produto__favoritar"><img src="./img/coracao.png" alt=""></div>
+                        <div class="produto__favoritar" ><img class='produto__nome__favoritar__desativado' id=${produto.id} src="./img/coracao.png" alt=""></div>
                     </div>
                     <div class="produto__infos-precos-botao">
                         <div class="produto__infos-precos">
@@ -69,7 +105,8 @@ fetch("dados.json").then((response) =>{
                 nome: produto.nome,
                 preco: produto.preco,
                 imagem: produto.imagem,
-                quantidade: `${parseInt(produto.quantidade) + 1}`
+                quantidade: `${parseInt(produto.quantidade) + 1}`,
+                favorito: produto.favorito
             }
             produtosDisponiveis.push(produtoArmazenado);
 
@@ -82,7 +119,7 @@ fetch("dados.json").then((response) =>{
                 <div class="produto__infos">
                     <div class="produto__nome__favoritar">
                         <p>${promocao.nome}</p>
-                    <div class="produto__favoritar"><img src="./img/coracao.png" alt=""></div>
+                    <div class="produto__favoritar"><img class='produto__nome__favoritar__desativado' id=${promocao.id} src="./img/coracao.png" alt=""></div>
                 </div>
                 <div class="produto__infos-precos-botao">
                     <div class="produto__infos-precos">
@@ -101,15 +138,27 @@ fetch("dados.json").then((response) =>{
                 preco: promocao.preco,
                 precoAntigo: promocao.precoAntigo,
                 imagem: promocao.imagem,
-                quantidade: `${parseInt(promocao.quantidade) + 1}`
+                quantidade: `${parseInt(promocao.quantidade) + 1}`,
+                favorito: promocao.favorito
             }
             produtosDisponiveis.push(promocaoArmazenada);
         })
         carrosselPromo.firstChild.nextSibling.classList.add("primeiraImg3");
 
         let produtoBtn = document.querySelectorAll('.produto__botao');
+        let produtoFavoritarBtn = document.querySelectorAll('.produto__favoritar');
+        produtoFavoritarBtn.forEach(produto=>{
+            let estaFavoritado = favoritos.find((favorito) => favorito.id == produto.firstChild.id);
+            if(estaFavoritado != undefined){
+                toggleCoracaoCor(produto.firstChild);
+            }
+        })
+
         produtoBtn.forEach( btn => {
             btn.addEventListener('click', (e)=> adicionarCarrinho(e))
+        })
+        produtoFavoritarBtn.forEach(btn =>{
+            btn.addEventListener('click',(e) => toggleFavoritos(e))
         })
     })
 

@@ -7,6 +7,9 @@ const sacola = document.querySelector('#sacola__id');
 const sacolaIcon = document.querySelector('.cabecalho__icons__sacola');
 const homeIcon = document.querySelector('.cabecalho__icons__home');
 const numeroDeProdutosNaSacola = document.querySelector('.numero__produtos__sacola');
+const numeroDeProdutosFavoritados = document.querySelector('.numero__produtos__favoritos');
+const favoritosIcon = document.querySelector('.cabecalho__icons__favoritos');
+const favoritosSection = document.querySelector('.favoritos');
 const listaMenuAberto = document.querySelector('.lista__menu__aberto');
 const menuHamburguer = document.querySelector('.cabecalho__menu-hamburguer');
 const busca = document.querySelector('.busca');
@@ -26,37 +29,41 @@ overlay.onclick = function(){
     hamburguerBtn.checked = false;
 }
 
-
-
-const trocarPaginaSacola = ()=>{
-
-    home.classList.add('hide');
-    sacola.classList.remove('hide')
-    listaMenuAberto.classList.add('hide');
-    menuHamburguer.classList.add('hide')
-    busca.classList.add('hide');
-    login.classList.add('hide');
-}
-
-const trocarPaginaHome = ()=>{
-
-    home.classList.remove('hide');
-    sacola.classList.add('hide')
-    listaMenuAberto.classList.remove('hide');
-    menuHamburguer.classList.remove('hide');
-    busca.classList.remove('hide');
-    login.classList.add('hide');
-  
-}
-const trocarPaginaLogin = ()=>{
-
+function escondeTudo(){
     home.classList.add('hide');
     sacola.classList.add('hide')
     listaMenuAberto.classList.add('hide');
     menuHamburguer.classList.add('hide');
     busca.classList.add('hide');
+    login.classList.add('hide');
+    favoritosSection.classList.add('hide');
+}
+
+
+const trocarPaginaSacola = ()=>{
+    escondeTudo();
+    sacola.classList.remove('hide')
+}
+
+const trocarPaginaHome = ()=>{
+
+    escondeTudo();
+    busca.classList.remove('hide');
+    home.classList.remove('hide');
+    listaMenuAberto.classList.remove('hide');
+    menuHamburguer.classList.remove('hide');
+  
+}
+const trocarPaginaLogin = ()=>{
+
+    escondeTudo()
     login.classList.remove('hide');
   
+}
+
+const trocarPaginaFavoritos = () =>{
+    escondeTudo();
+    favoritosSection.classList.remove('hide')
 }
 
 function iconAlteraNumeroDeProdutosSacola(){
@@ -64,11 +71,17 @@ function iconAlteraNumeroDeProdutosSacola(){
     carrinho.forEach((produto)=>{
         quantidadeDeProdutosNaSacola = parseInt(produto.quantidade)+quantidadeDeProdutosNaSacola;
     })
+
+   
     numeroDeProdutosNaSacola.textContent=quantidadeDeProdutosNaSacola;
+}
+
+function iconAlteraNumeroDeProdutosFavoritados(){
+    numeroDeProdutosFavoritados.textContent = favoritos.length;
 }
 
 sacolaIcon.addEventListener('click', trocarPaginaSacola);
 homeIcon.addEventListener('click', trocarPaginaHome);
 loginIcon.addEventListener('click', trocarPaginaLogin);
+favoritosIcon.addEventListener('click', trocarPaginaFavoritos);
 
-console.log(numeroDeProdutosNaSacola.textContent);
