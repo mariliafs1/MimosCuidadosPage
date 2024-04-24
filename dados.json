@@ -12,21 +12,21 @@
             "id":"2",
             "nome" : "Palleta Sombras",
             "preco": "R$ 89,99",
-            "imagem" : "./img/produto_plalleta_sombra.jpg",
+            "imagem" : "./img/produto_palleta_sombra.jpg",
             "quantidade" : "0",
             "favorito":"false"
         },
         {   
             "id":"3",
-            "nome" : "Sabonete Líquido",
-            "preco": "R$ 19,99",
-            "imagem" : "./img/produto_buble_bath.jpg",
+            "nome" : "Perfume Ouro",
+            "preco": "R$ 105,99",
+            "imagem" : "./img/produto_perfume3.jpg",
             "quantidade" : "0",
             "favorito":"false"
         },
         {
             "id":"4",
-            "nome" : "Sabonete Líquido 2",
+            "nome" : "Sabonete Líquido",
             "preco": "R$ 19,99",
             "imagem" : "./img/produto_buble_bath.jpg",
             "quantidade" : "0",
@@ -47,51 +47,68 @@
             "imagem" : "./img/produto_sabonete.jpg",
             "quantidade" : "0",
             "favorito":"false"
+        },
+        {
+            "id":"13",
+            "nome" : "Creme anti-aging",
+            "preco": "R$ 43,75",
+            "imagem" : "./img/produto_cremeOlhos.jpg",
+            "quantidade" : "0",
+            "favorito":"false"
         }
     ],
     "promocoes":[
         {
             "id":"7",
-            "nome" : "Loção",
-            "preco": "R$ 39,90",
-            "precoAntigo": "R$ 50,00",
-            "imagem" : "./img/produto_oleo.png",
+            "nome" : "Perfume Luna",
+            "preco": "R$ 40,29",
+            "precoAntigo": "R$ 60,35",
+            "imagem" : "./img/produto_perfume1.jpg",
             "quantidade" : "0",
             "favorito":"false"
         },
         {
             "id":"8",
-            "nome" : "Palleta Sombras",
-            "preco": "R$ 89,99",
-            "precoAntigo": "R$ 50,00",
-            "imagem" : "./img/produto_plalleta_sombra.jpg",
+            "nome" : "Perfume Carvalho",
+            "preco": "R$ 79,99",
+            "precoAntigo": "R$ 90,00",
+            "imagem" : "./img/produto_perfume2.jpg",
             "quantidade" : "0",
             "favorito":"false"
         },
         {
             "id":"9",
-            "nome" : "Sabonete Líquido",
-            "preco": "R$ 19,99",
-            "precoAntigo": "R$ 50,00",
-            "imagem" : "./img/produto_buble_bath.jpg",
+            "nome" : "Hidratante Flor",
+            "preco": "R$ 25,99",
+            "precoAntigo": "R$ 41,30",
+            "imagem" : "./img/produto_cremeCorporal.jpg",
             "quantidade" : "0",
             "favorito":"false"
         },
         {
             "id":"10",
-            "nome" : "Rímel",
-            "preco": "R$ 18,99",
+            "nome" : "Conjunto Pincel",
+            "preco": "R$ 34,99",
             "precoAntigo": "R$ 50,00",
-            "imagem" : "./img/produto_rimel.jpg",
+            "imagem" : "./img/produto_pinceis.jpg",
             "quantidade" : "0",
             "favorito":"false"
         },
         {
             "id":"11",
-            "nome" : "Sabonete Barra",
-            "preco": "R$ 29,99",
+            "nome" : "Shampoo Cacheados",
+            "preco": "R$ 32,99",
             "precoAntigo": "R$ 50,00",
-            "imagem" : "./img/produto_sabonete.jpg",
+            "imagem" : "./img/produto_shampoo.jpg",
+            "quantidade" : "0",
+            "favorito":"false"
+        },
+        {
+            "id":"12",
+            "nome" : "Creme Secante",
+            "preco": "R$ 39,99",
+            "precoAntigo": "R$ 62,00",
+            "imagem" : "./img/produto_royal.png",
             "quantidade" : "0",
             "favorito":"false"
         }
