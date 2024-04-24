@@ -1,4 +1,4 @@
-// localStorage.removeItem('carrinho')
+localStorage.removeItem('favoritos')
 //script que lê o json para renderizar os produtos disponíveis dentro dos carrosseis de produtos da HOME
 
 let carrosselUltimosLancamentos = document.querySelector("#carrossel__ultimos__lancamentos")
@@ -9,7 +9,7 @@ let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
 
 
-let produtosDisponiveis = []; //ARMAZENA OS DADOS DO JSON INDICANDO UMA LISTA DE PRODUTOS DISPONÍVEIS NA LOJA
+let produtosDisponiveis = []; //VARIÁVEL QUE ARMAZENA OS DADOS DO JSON INDICANDO UMA LISTA DE PRODUTOS DISPONÍVEIS NA LOJA
 
 function atualizarCarrinho() {
 	localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
@@ -48,9 +48,8 @@ function adicionarCarrinho (e){
 }
 
 function toggleFavoritos(e){
-    let produtoSelecionado = produtosDisponiveis.find((produto) => produto.id === e.target.id);
+    let produtoSelecionado = produtosDisponiveis.find((produto) => produto.id == e.target.id);
     let produtoJaExisteNosFavoritos = favoritos.find((produto) => produto.id == produtoSelecionado.id);
-    console.log(e.target);
     if (produtoJaExisteNosFavoritos == undefined){
         produtoSelecionado.favorito = 'true';
         favoritos.push(produtoSelecionado);
@@ -67,9 +66,11 @@ function toggleFavoritos(e){
 function toggleCoracaoCor(coracao){
     let coracaoProdutos = document.querySelectorAll('.produto__favoritar');
     let coracaoProdutosArray = Array.from(coracaoProdutos);
+
     let coracaoClicado = coracaoProdutosArray.filter((produto) => (produto.firstChild.id == coracao.id ))
+    console.log(coracaoClicado);
     coracaoClicado.forEach((produto)=>{
-        console.log('nhaqui', produto.firstChild)
+        
         if(produto.firstChild.classList.contains('produto__nome__favoritar__desativado')){
             produto.firstChild.classList.remove('produto__nome__favoritar__desativado');
         }else{

@@ -8,7 +8,7 @@ const lixoBtn = document.querySelectorAll('.lixo');
 const sacolaVazia = document.querySelector('.sacola__vazia');
 
 let carrinhoSacola = JSON.parse(localStorage.getItem('carrinho')) || [];
-console.log(carrinhoSacola);
+
 
 
 
@@ -57,9 +57,9 @@ function criarProdutoFavorito(produto){
         </div>
     </div>  `
 
-    let btnCoracao = favoritosItens.querySelector('.produto__favoritar');
-    btnCoracao.addEventListener('click', (e) => toggleFavoritos(e));
-
+    let btnCoracao = favoritosItens.querySelectorAll('.produto__favoritar'); 
+    btnCoracao.forEach(btn => btn.addEventListener('click', (e) => toggleFavoritos(e)))
+ 
 }
 
 
@@ -98,7 +98,6 @@ function removeProduto(e){
     let seletor = e.target.parentElement.id;
 
     carrinho = carrinho.filter((produto) => (produto.id != seletor));
-    console.log('carrinho:', carrinho);
     e.target.parentElement.parentElement.parentElement.remove();
     sacolaVaziaToggle();
     atualizarSubTotal();

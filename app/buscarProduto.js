@@ -12,6 +12,7 @@ if(document.readyState == 'loading'){
         buscaProdutoFiltrado.innerHTML = '';
         if(inputBuscar.value != ''){
             produtosDisponiveis.forEach((produto) => {
+                let produtoJaExisteNosFavoritos = favoritos.find((favorito) => favorito.id == produto.id);
                 if(produto.nome.toLowerCase().includes(inputBuscar.value.toLowerCase())){
                 buscaProdutoFiltrado.innerHTML +=
                         `
@@ -20,7 +21,7 @@ if(document.readyState == 'loading'){
                                 <div class="produto__infos">
                                     <div class="produto__nome__favoritar">
                                         <p>${produto.nome}</p>
-                                        <div class="produto__favoritar"><img src="./img/coracao.png" alt=""></div>
+                                        <div class="produto__favoritar ${produtoJaExisteNosFavoritos ? '': 'produto__nome__favoritar__desativado'}" ><img id=${produto.id} src="./img/coracao.png" alt=""></div>
                                     </div>
                                     <div class="produto__infos-precos-botao">
                                         <div class="produto__infos-precos">
@@ -33,13 +34,23 @@ if(document.readyState == 'loading'){
                                 </div>
                             </div>  
                         `
+                       
                     }
+
+                    // let produtoJaExisteNosFavoritos = favoritos.find((produto) => produto.id == produtoSelecionado.id);
+                    // if (produtoJaExisteNosFavoritos == undefined){
+                        
+                    // }
                     
                 })
+
+
                 let produtoBtn = buscaProdutoFiltrado.querySelectorAll('.produto__botao');
                 produtoBtn.forEach( btn => {
                     btn.addEventListener('click', (e)=> adicionarCarrinho(e))
                 })
+                let btnCoracao = buscaProdutoFiltrado.querySelectorAll('.produto__favoritar'); 
+                btnCoracao.forEach(btn => btn.addEventListener('click', (e) => toggleFavoritos(e)))
         }
     }
     
