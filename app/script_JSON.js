@@ -44,7 +44,7 @@ function adicionarCarrinho (e){
     sacolaVaziaToggle();
     atualizarCarrinho();
     atualizarSubTotal();
-    openModal();
+    openModal('Item adicionado à sacola!');
 }
 
 function toggleFavoritos(e){
@@ -61,6 +61,12 @@ function toggleFavoritos(e){
     atualizarFavoritos();
     toggleCoracaoCor(e.target);
     atualizarRenderizacaoFavoritos();
+
+    if(produtoSelecionado.favorito == 'true'){
+        openModal('Item adicionado aos favoritos!');
+    }else{
+        openModal('Item removido dos favoritos!')
+    }
 }
 
 function toggleCoracaoCor(coracao){
