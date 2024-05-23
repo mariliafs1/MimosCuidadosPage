@@ -13,6 +13,7 @@
     <script src="./app/buscarProduto.js" defer></script>
     <script src="./app/script_carrinho.js" defer></script>
     <script src="./app/modal.js" defer></script>
+    <script src="./app/validaForm.js" type="module" defer></script>
 </head>
 <body>
     <header class="cabecalho">
@@ -42,7 +43,8 @@
             </ul>
         </div>
     </header>
-    <section class="busca">
+        <!-- escondi aqui -->
+    <section class="busca hide">
         <input type="search" class="busca__input" placeholder="Qual produto você procura?">
         <div class="busca__produto__filtrado">
             
@@ -54,7 +56,8 @@
             <button class="modalBtn__sacola__close">Fechar</button> 
         </div>
     </div>
-    <section id="home" class="">
+    <!-- escondi aqui -->
+    <section id="home" class="hide"> 
         <img src="./img/banner.png" class="home__background">
         <section class="carrossel__wrapper">
             <div class="carrossel">
@@ -137,19 +140,75 @@
     <section class="login hide">
         <div class="login__container">
             <h1>Faça seu login e acompanhe seus pedidos.</h1>
-            <form >
+            <form class="login__container">
                 <h2>IDENTIFIQUE-SE</h2>
                 <label> E-mail:
-                    <input type="email" placeholder='Digite o seu e-mail...'>
+                    <input type="email" placeholder='Digite o seu e-mail...' minlength="4">
                 </label>
                 <label> Senha:
                     <input type="email" placeholder='Digite a sua senha...'>
                 </label>
                 <p>Esqueci minha senha</p>
                 <input type="submit" value="ENTRAR" class="login__btn__entrar">
+                <button>QUERO ME CADASTRAR</button>
             </form>
-            <button>QUERO ME CADASTRAR</button>
         </div>
+    </section>
+    <section class="login">
+        <form class="login__container">
+            <h1>Preencha os campos abaixo para se cadastrar.</h1>
+            <fieldset class="cadastro__campo">
+                <label class="cadastro__etiqueta" for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" class="cadastro__escrita" placeholder="Digite seu nome completo..." required />
+                <span class="mesagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="cadastro__campo">
+                <label class="cadastro__etiqueta" for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" class="cadastro__escrita cpf"
+                    maxlength="14" 
+                    minlength="14"
+                    required />
+                <span class="mesagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="cadastro__campo">
+                <label class="cadastro__etiqueta" for="nascimento">Data de nascimento:</label>
+                <input type="date" name="nascimento" id="nascimento" class="cadastro__escrita"  required />
+                <span class="mesagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="cadastro__campo">
+                <label class="cadastro__etiqueta" for="email">E-mail:</label>
+                <input type="email" name="email__cadastro" id="email__cadastro" class="cadastro__escrita" minlength="4" required />
+                <span class="mesagem-erro"></span>
+            </fieldset>
+
+            <fieldset class="cadastro__campo">
+                <label class="cadastro__etiqueta" for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" class="cadastro__escrita" placeholder="Crie uma senha..." required />
+                <span class="mesagem-erro"></span>
+            </fieldset>
+
+            <fieldset class="cadastro__campo">
+                <label class="cadastro__etiqueta" for="senha">Repita a senha:</label>
+                <input type="password" name="repete__senha" id="repete__senha" class="cadastro__escrita" placeholder="Digite a sua senha novamente..." required />
+                <span class="mesagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="cadastro__campo cadastro__check">
+                <input name="termos" class="input__check"  type="checkbox" required />
+                <p class="termos__texto">
+                    Li e concordo com o <strong>termo de consentimento.</strong>
+                </p>
+                <span class="mesagem-erro"></span>
+            </fieldset>
+            <div class="botao__form__cadastrar">
+                <input type="submit" value="CADASTRAR" class="cadastro__botao" id="enviar">
+                <span class="mensagem-erro"></span>
+                <button>JÁ TENHO CADASTRO</button>
+            </div>
+        </form>
     </section>
     <footer>
         <div class="footer">

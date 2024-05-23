@@ -1,15 +1,16 @@
 .login{
     background-color: var(--roxo);
     padding: 40px;
+    margin-top: 80px;
 }
 
 .login__container{
-    margin: 70px auto 0 auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     text-align: center;
     gap: 20px;
-    padding: 40px 20px;
+    padding: 40px 20px 20px ;
     width: 75%;
     background-color: var(--cor-de-fundo);
     border-radius: 8px;
@@ -43,7 +44,7 @@
 
 .login__container input, .login__container button{
     width: 100%;
-    height: 40px;
+    height: auto;
     border: 1px solid var(--cinza) ;
     border-radius: 5px;
     font-family: var(--fonte);
@@ -88,7 +89,9 @@
     color: var(--cor-de-fundo);
     border: none;
     opacity: 0.6;
+    height: auto;
 }
+
 
 .login__btn__entrar:hover{
    opacity: 1;
@@ -100,7 +103,7 @@
 }
 
 @media screen and (min-width: 850px){
-    .login__container form, .login__container button{
+    .login__container form{
         width: 500px;
         text-align: center;
         margin: 0 auto;
