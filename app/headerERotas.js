@@ -15,6 +15,10 @@ const menuHamburguer = document.querySelector('.cabecalho__menu-hamburguer');
 const busca = document.querySelector('.busca');
 const login = document.querySelector('.login');
 const loginIcon = document.querySelector('.cabecalho__icons__login')
+const queroCadastrarBtn = document.querySelector('.quero__cadastrar');
+const tenhoCadastroBtn = document.querySelector('.tenho__cadastro');
+const pagLogin = document.querySelector('#login');
+const pagCadastro = document.querySelector('#cadastro');
 
 
 
@@ -37,6 +41,7 @@ function escondeTudo(){
     busca.classList.add('hide');
     login.classList.add('hide');
     favoritosSection.classList.add('hide');
+    pagCadastro.classList.add('hide');
 }
 
 
@@ -80,8 +85,15 @@ function iconAlteraNumeroDeProdutosFavoritados(){
     numeroDeProdutosFavoritados.textContent = favoritos.length;
 }
 
+function trocarPaginaCadastro(){
+    escondeTudo();
+    pagCadastro.classList.remove('hide');
+}
+
+
 sacolaIcon.addEventListener('click', trocarPaginaSacola);
 homeIcon.addEventListener('click', trocarPaginaHome);
 loginIcon.addEventListener('click', trocarPaginaLogin);
 favoritosIcon.addEventListener('click', trocarPaginaFavoritos);
-
+queroCadastrarBtn.addEventListener('click', trocarPaginaCadastro);
+tenhoCadastroBtn.addEventListener('click', trocarPaginaLogin);

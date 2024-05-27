@@ -9,7 +9,7 @@
     <script src="./app/script_JSON.js" defer></script>
     <script src="./app/script_carrossel.js" defer></script>
     <script src="./app/script_footer.js" defer></script>
-    <script src="./app/header.js" defer></script>
+    <script src="./app/headerERotas.js" defer></script>
     <script src="./app/buscarProduto.js" defer></script>
     <script src="./app/script_carrinho.js" defer></script>
     <script src="./app/modal.js" defer></script>
@@ -43,8 +43,7 @@
             </ul>
         </div>
     </header>
-        <!-- escondi aqui -->
-    <section class="busca hide">
+    <section class="busca">
         <input type="search" class="busca__input" placeholder="Qual produto você procura?">
         <div class="busca__produto__filtrado">
             
@@ -55,9 +54,8 @@
             <p></p>
             <button class="modalBtn__sacola__close">Fechar</button> 
         </div>
-    </div>
-    <!-- escondi aqui -->
-    <section id="home" class="hide"> 
+    </div>    
+    <section id="home" class=""> 
         <img src="./img/banner.png" class="home__background">
         <section class="carrossel__wrapper">
             <div class="carrossel">
@@ -137,7 +135,7 @@
             <button class="finalizar__compra__sacola">FINALIZAR COMPRA</button>
         </div>
     </section>
-    <section class="login hide">
+    <section id='login' class="login hide">
         <div class="login__container">
             <h1>Faça seu login e acompanhe seus pedidos.</h1>
             <form class="login__container">
@@ -150,11 +148,11 @@
                 </label>
                 <p>Esqueci minha senha</p>
                 <input type="submit" value="ENTRAR" class="login__btn__entrar">
-                <button>QUERO ME CADASTRAR</button>
+                <button class="quero__cadastrar">QUERO ME CADASTRAR</button>
             </form>
         </div>
     </section>
-    <section class="login">
+    <section id='cadastro' class="login hide">
         <form class="login__container">
             <h1>Preencha os campos abaixo para se cadastrar.</h1>
             <fieldset class="cadastro__campo">
@@ -214,7 +212,7 @@
             <div class="botao__form__cadastrar">
                 <input type="submit" value="CADASTRAR" class="cadastro__botao" id="enviar" disabled>
                 <span class="mensagem-erro"></span>
-                <button>JÁ TENHO CADASTRO</button>
+                <button class="tenho__cadastro">JÁ TENHO CADASTRO</button>
             </div>
         </form>
     </section>

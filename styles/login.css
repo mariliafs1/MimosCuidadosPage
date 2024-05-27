@@ -10,14 +10,14 @@
     flex-direction: column;
     text-align: center;
     gap: 20px;
-    padding: 40px 20px 20px ;
+    padding: 16px 20px 16px ;
     width: 75%;
     background-color: var(--cor-de-fundo);
     border-radius: 8px;
 }
 
 .login__container h1{
-    font-size: 25px;
+    font-size: 20px;
     color: var(--cinza-escuro);
     line-height: 32px;
 }
@@ -40,15 +40,19 @@
     align-items: flex-start;
     gap: 8px;
     width: 100%;
+    font-size: 14px;
 }
 
 .login__container input, .login__container button{
     width: 100%;
-    height: auto;
     border: 1px solid var(--cinza) ;
     border-radius: 5px;
     font-family: var(--fonte);
     padding: 12px;
+}
+
+.login__container button{
+    height: auto;
 }
 
 .login__container input::placeholder{
