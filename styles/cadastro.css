@@ -44,11 +44,37 @@
 
 .botao__form__cadastrar input[value]{
     letter-spacing: 2px;
-    background-color: var(--roxo);
     color: var(--cor-de-fundo);
-    opacity: 0.5;
 }
 
 .botao__form__cadastrar button{
     max-width: 100%;
+}
+
+.senha__icon__position{
+    position: relative;
+}
+
+#icon__olho, #icon__olho2{
+    width: 20px;
+    position: absolute;
+    top: 53%;
+    right: 12px;
+    cursor: pointer;
+}
+
+
+
+.cadastro__botao{
+    background-color: var(--roxo);
+    opacity: 0.8;
+}
+
+.cadastro__botao:hover{
+    opacity: 1;
+}
+
+.cadastro__botao:disabled{
+    opacity: 0.5;
+    background-color: rgb(187, 186, 186);
 }

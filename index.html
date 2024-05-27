@@ -160,7 +160,7 @@
             <fieldset class="cadastro__campo">
                 <label class="cadastro__etiqueta" for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" class="cadastro__escrita" placeholder="Digite seu nome completo..." required />
-                <span class="mesagem-erro"></span>
+                <span class="mensagem-erro"></span>
             </fieldset>
             
             <fieldset class="cadastro__campo">
@@ -169,31 +169,37 @@
                     maxlength="14" 
                     minlength="14"
                     required />
-                <span class="mesagem-erro"></span>
+                <span class="mensagem-erro"></span>
             </fieldset>
             
             <fieldset class="cadastro__campo">
                 <label class="cadastro__etiqueta" for="nascimento">Data de nascimento:</label>
                 <input type="date" name="nascimento" id="nascimento" class="cadastro__escrita"  required />
-                <span class="mesagem-erro"></span>
+                <span class="mensagem-erro"></span>
             </fieldset>
             
             <fieldset class="cadastro__campo">
                 <label class="cadastro__etiqueta" for="email">E-mail:</label>
                 <input type="email" name="email__cadastro" id="email__cadastro" class="cadastro__escrita" minlength="4" required />
-                <span class="mesagem-erro"></span>
+                <span class="mensagem-erro"></span>
             </fieldset>
 
-            <fieldset class="cadastro__campo">
+            <fieldset class="cadastro__campo senha__icon__position">
                 <label class="cadastro__etiqueta" for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha" class="cadastro__escrita" placeholder="Crie uma senha..." required />
-                <span class="mesagem-erro"></span>
+                <img id="icon__olho" src="./img/olho_closed.svg" alt="">
+                <input type="password" name="senha" id="senha" class="cadastro__escrita" 
+                minlength="6"      
+                placeholder="Crie uma senha..." required />
+                <span class="mensagem-erro"></span>
             </fieldset>
 
-            <fieldset class="cadastro__campo">
+            <fieldset class="cadastro__campo senha__icon__position">
                 <label class="cadastro__etiqueta" for="senha">Repita a senha:</label>
-                <input type="password" name="repete__senha" id="repete__senha" class="cadastro__escrita" placeholder="Digite a sua senha novamente..." required />
-                <span class="mesagem-erro"></span>
+                <img id="icon__olho2" src="./img/olho_closed.svg" alt="">
+                <input type="password" name="senha_repetida" id="repete__senha" class="cadastro__escrita" 
+                minlength="6"   
+                placeholder="Digite a sua senha novamente..." required />
+                <span class="mensagem-erro"></span>
             </fieldset>
             
             <fieldset class="cadastro__campo cadastro__check">
@@ -201,10 +207,10 @@
                 <p class="termos__texto">
                     Li e concordo com o <strong>termo de consentimento.</strong>
                 </p>
-                <span class="mesagem-erro"></span>
+                <span class="mensagem-erro"></span>
             </fieldset>
             <div class="botao__form__cadastrar">
-                <input type="submit" value="CADASTRAR" class="cadastro__botao" id="enviar">
+                <input type="submit" value="CADASTRAR" class="cadastro__botao" id="enviar" disabled>
                 <span class="mensagem-erro"></span>
                 <button>JÁ TENHO CADASTRO</button>
             </div>
