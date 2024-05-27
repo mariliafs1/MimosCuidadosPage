@@ -63,7 +63,13 @@
     cursor: pointer;
 }
 
-
+.mensagem-erro{
+    color: red;
+    font-weight: 300;
+    font-size: 12px;
+    display: flex;
+    margin-top: 4px;
+}
 
 .cadastro__botao{
     background-color: var(--roxo);

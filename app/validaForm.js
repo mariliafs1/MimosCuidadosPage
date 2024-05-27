@@ -7,6 +7,7 @@ const inputSenhaRepete = document.querySelector('#repete__senha');
 const botaoSubmit = document.querySelector('.cadastro__botao');
 const termoCheck = document.querySelector('.input__check');
 
+
 //TRATA CPF
 
 
@@ -41,7 +42,7 @@ const mensagensErroValidacao ={
         valueMissing: "Preencha o campo cpf.",
         patternMismatch: "Por favor, preencha um cpf válido.",
         tooShort: "Está Faltando Digitos no CPF",
-        customError: "cpf Invalido"
+        customError: "cpf Inválido"
     },
     senha:{
         valueMissing: "Preencha o campo senha.",
@@ -79,7 +80,7 @@ function verificaCampo(campo){
     }
 
     if(campo.name == 'termos' && !campo.checked){
-        campo.setCustomValidity('precisa s')
+        campo.setCustomValidity('precisas')
     }else if(campo.name == 'termos'){
         campo.setCustomValidity('');
     }
@@ -101,7 +102,9 @@ function verificaCampo(campo){
     }
 
     let validadorForm = Array.from(camposDoCadastro).find((campo) => campo.checkValidity() == false);
+    console.log(validadorForm);
     validadorForm ? botaoSubmit.disabled = true : botaoSubmit.disabled = false;
+
 
 }
 
