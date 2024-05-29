@@ -59,12 +59,16 @@
     position: relative;
 }
 
-#icon__olho, #icon__olho2{
+#icon__olho, #icon__olho2, #icon__olho__login{
     width: 20px;
     position: absolute;
+    
+    cursor: pointer;
+}
+
+#icon__olho, #icon__olho2{
     top: 53%;
     right: 12px;
-    cursor: pointer;
 }
 
 .mensagem-erro{

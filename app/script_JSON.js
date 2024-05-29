@@ -113,7 +113,8 @@ fetch("dados.json").then((response) =>{
                 preco: produto.preco,
                 imagem: produto.imagem,
                 quantidade: `${parseInt(produto.quantidade) + 1}`,
-                favorito: produto.favorito
+                favorito: produto.favorito,
+                promocao: false
             }
             produtosDisponiveis.push(produtoArmazenado);
 
@@ -146,7 +147,8 @@ fetch("dados.json").then((response) =>{
                 precoAntigo: promocao.precoAntigo,
                 imagem: promocao.imagem,
                 quantidade: `${parseInt(promocao.quantidade) + 1}`,
-                favorito: promocao.favorito
+                favorito: promocao.favorito,
+                promocao: true
             }
             produtosDisponiveis.push(promocaoArmazenada);
         })

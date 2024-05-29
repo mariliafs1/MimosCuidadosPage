@@ -3,7 +3,9 @@ const inputCPF = document.querySelector(".cpf");
 const senhaOlho = document.querySelector('#icon__olho')
 const inputSenha = document.querySelector('#senha');
 const senhaOlho2 = document.querySelector('#icon__olho2');
+const loginOlho = document.querySelector('#icon__olho__login');
 const inputSenhaRepete = document.querySelector('#repete__senha');
+const inputSenhaLogin = document.querySelector('#senha__login');
 const botaoSubmit = document.querySelector('.cadastro__botao');
 const termoCheck = document.querySelector('.input__check');
 
@@ -33,6 +35,11 @@ const mensagensErroValidacao ={
         patternMismatch: "Por favor, preencha um nome válido.",
         tooShort: "Por favor, preencha um nome válido."
     },
+    email_login:{
+        valueMissing: "Preencha o campo e-mail.",
+        tooShort: "Por favor, preencha um e-mail válido.",
+        typeMismatch: "Esse não um e-mail válido."
+    },
     email__cadastro:{
         valueMissing: "Preencha o campo e-mail.",
         tooShort: "Por favor, preencha um e-mail válido.",
@@ -43,6 +50,11 @@ const mensagensErroValidacao ={
         patternMismatch: "Por favor, preencha um cpf válido.",
         tooShort: "Está Faltando Digitos no CPF",
         customError: "cpf Inválido"
+    },
+    senha_login:{
+        valueMissing: "Preencha o campo senha.",
+        // patternMismatch: "Por favor, preencha uma senha válida.", 
+        tooShort: "A senha deve ter no mínimo 6 dígitos"
     },
     senha:{
         valueMissing: "Preencha o campo senha.",
@@ -204,14 +216,17 @@ function validaSegundoDigito(cpf){
 
 senhaOlho.addEventListener('click', (e)=>toggleMostrarSenha(e, inputSenha));
 senhaOlho2.addEventListener('click', (e)=>toggleMostrarSenha(e, inputSenhaRepete));
+loginOlho.addEventListener('click', (e)=>toggleMostrarSenha(e, inputSenhaLogin));
 
 function toggleMostrarSenha(e, campo){
     if(campo.type === 'password'){
         campo.setAttribute('type', 'text');
         e.target.setAttribute('src','./img/olho_open.svg')
+        e.target.setAttribute('alt','Icone de olho aberto')
     }else{
         campo.setAttribute('type','password');
         e.target.setAttribute('src','./img/olho_closed.svg')
+        e.target.setAttribute('alt','Icone de olho fechado')
     }
 }
 

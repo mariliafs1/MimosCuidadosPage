@@ -5,6 +5,7 @@
             "nome" : "Loção",
             "preco": "R$ 39,90",
             "imagem" : "./img/produto_oleo.png",
+            "categoria" : "skincare",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -13,6 +14,7 @@
             "nome" : "Palleta Sombras",
             "preco": "R$ 89,99",
             "imagem" : "./img/produto_palleta_sombra.jpg",
+            "categoria" : "maquiagem",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -21,6 +23,7 @@
             "nome" : "Perfume Ouro",
             "preco": "R$ 105,99",
             "imagem" : "./img/produto_perfume3.jpg",
+            "categoria" : "perfumaria-masculina",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -29,6 +32,7 @@
             "nome" : "Sabonete Líquido",
             "preco": "R$ 19,99",
             "imagem" : "./img/produto_buble_bath.jpg",
+            "categoria" : "corpoebanho",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -37,6 +41,7 @@
             "nome" : "Rímel",
             "preco": "R$ 18,99",
             "imagem" : "./img/produto_rimel.jpg",
+            "categoria" : "maquiagem",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -45,6 +50,7 @@
             "nome" : "Sabonete Barra",
             "preco": "R$ 29,99",
             "imagem" : "./img/produto_sabonete.jpg",
+            "categoria" : "corpoebanho",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -53,6 +59,7 @@
             "nome" : "Creme anti-aging",
             "preco": "R$ 43,75",
             "imagem" : "./img/produto_cremeOlhos.jpg",
+            "categoria" : "skincare",
             "quantidade" : "0",
             "favorito":"false"
         }
@@ -64,6 +71,7 @@
             "preco": "R$ 40,29",
             "precoAntigo": "R$ 60,35",
             "imagem" : "./img/produto_perfume1.jpg",
+            "categoria" : "perfumaria-feminina",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -73,6 +81,7 @@
             "preco": "R$ 79,99",
             "precoAntigo": "R$ 90,00",
             "imagem" : "./img/produto_perfume2.jpg",
+            "categoria" : "perfumaria-masculina",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -82,6 +91,7 @@
             "preco": "R$ 25,99",
             "precoAntigo": "R$ 41,30",
             "imagem" : "./img/produto_cremeCorporal.jpg",
+            "categoria" : "corpoebanho",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -91,6 +101,7 @@
             "preco": "R$ 34,99",
             "precoAntigo": "R$ 50,00",
             "imagem" : "./img/produto_pinceis.jpg",
+            "categoria" : "maquiagem",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -100,6 +111,7 @@
             "preco": "R$ 32,99",
             "precoAntigo": "R$ 50,00",
             "imagem" : "./img/produto_shampoo.jpg",
+            "categoria" : "cabelos",
             "quantidade" : "0",
             "favorito":"false"
         },
@@ -109,6 +121,7 @@
             "preco": "R$ 39,99",
             "precoAntigo": "R$ 62,00",
             "imagem" : "./img/produto_royal.png",
+            "categoria" : "skincare",
             "quantidade" : "0",
             "favorito":"false"
         }

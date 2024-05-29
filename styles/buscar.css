@@ -1,7 +1,7 @@
 .busca{
     max-width: 1400px;
     background-color: var(--roxo);
-    padding: 1.2rem 3rem; 
+    padding: 1.2rem 3rem 1.5rem; 
     margin: 70px auto 0 auto;
     display: flex;
     flex-direction: column;

@@ -46,7 +46,7 @@
     <section class="busca">
         <input type="search" class="busca__input" placeholder="Qual produto você procura?">
         <div class="busca__produto__filtrado">
-            
+            <!-- area de produtos filtrados pelo input buscar -->
         </div>
     </section>
     <div class="modal__sacola__container">
@@ -60,13 +60,13 @@
         <section class="carrossel__wrapper">
             <div class="carrossel">
                 <div id="left" class="carrossel__seta left"><img src="img/seta_esquerda.png" alt="Ícone de seta esquerda" ></div>
-                <div class="carrossel__container">
-                    <img class='carrossel_img' src="img/maquiagem.png" draggable="false" alt="Foto de olho maqueado">
-                    <img class='carrossel_img' src="img/cabelos.png" draggable="false" alt="Foto de mulher com longos cabelos">
-                    <img class='carrossel_img' src="img/perfumaria_feminina.png" draggable="false" alt="Foto de mulher cheirando flores">
-                    <img class='carrossel_img' src="img/perfumaria_masculina.png" draggable="false" alt="Foto de homem cheirando flores">
-                    <img class='carrossel_img' src="img/skin_care.png" draggable="false" alt="Foto de homem passando creme no rosto">
-                    <img class='carrossel_img' src="img/corpoEbanho.png" draggable="false" alt="Foto de pés dentro de uma banheira cheia de bolhas">
+                <div id="carrossel__menu" class="carrossel__container">
+                    <img id="icone__imagem" class='carrossel_img' src="img/maquiagem.png" draggable="false" alt="Foto de olho maqueado">
+                    <img id="icone__cabelos" class='carrossel_img' src="img/cabelos.png" draggable="false" alt="Foto de mulher com longos cabelos">
+                    <img id="icone__perfumaria-feminina" class='carrossel_img' src="img/perfumaria_feminina.png" draggable="false" alt="Foto de mulher cheirando flores">
+                    <img id="icone__perfumaria-masculina" class='carrossel_img' src="img/perfumaria_masculina.png" draggable="false" alt="Foto de homem cheirando flores">
+                    <img id="icone__skincare" class='carrossel_img' src="img/skin_care.png" draggable="false" alt="Foto de homem passando creme no rosto">
+                    <img id="icone__corpoebanho" class='carrossel_img' src="img/corpoEbanho.png" draggable="false" alt="Foto de pés dentro de uma banheira cheia de bolhas">
                 </div>
                 <div id="right" class="carrossel__seta"><img src="img/seta_direita.png" alt="Ícone de seta direita" ></div>
             </div>
@@ -140,16 +140,21 @@
             <h1>Faça seu login e acompanhe seus pedidos.</h1>
             <form class="login__container">
                 <h2>IDENTIFIQUE-SE</h2>
-                <label> E-mail:
-                    <input type="email" placeholder='Digite o seu e-mail...' minlength="4">
-                </label>
-                <label> Senha:
-                    <input type="email" placeholder='Digite a sua senha...'>
-                </label>
-                <p>Esqueci minha senha</p>
+                <fieldset class="login__campo">
+                    <label> E-mail:</label>
+                    <input type="email" name="email_login" placeholder='Digite o seu e-mail...' minlength="4" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <fieldset class='login__campo senha__icon__position'>
+                <label> Senha: </label>
+                    <img id="icon__olho__login" src="./img/olho_closed.svg" alt="Icone de olho fechado">
+                    <input type="password" id="senha__login" name='senha_login' placeholder='Digite a sua senha...' minlength="6" required>
+                    <span class="mensagem-erro"></span>           
+                    <p>Esqueci minha senha</p>
+                </fieldset>
                 <input type="submit" value="ENTRAR" class="login__btn__entrar">
-                <button class="quero__cadastrar">QUERO ME CADASTRAR</button>
             </form>
+            <button class="quero__cadastrar">QUERO ME CADASTRAR</button>
         </div>
     </section>
     <section id='cadastro' class="login hide">
@@ -184,7 +189,7 @@
 
             <fieldset class="cadastro__campo senha__icon__position">
                 <label class="cadastro__etiqueta" for="senha">* Senha:</label>
-                <img id="icon__olho" src="./img/olho_closed.svg" alt="">
+                <img id="icon__olho" src="./img/olho_closed.svg" alt="Icone de olho fechado">
                 <input type="password" name="senha" id="senha" class="cadastro__escrita" 
                 minlength="6"      
                 placeholder="Crie uma senha..." required />
@@ -193,10 +198,10 @@
 
             <fieldset class="cadastro__campo senha__icon__position">
                 <label class="cadastro__etiqueta" for="senha">* Repita a senha:</label>
-                <img id="icon__olho2" src="./img/olho_closed.svg" alt="">
+                <img id="icon__olho2" src="./img/olho_closed.svg" alt="Icone de olho fechado">
                 <input type="password" name="senha_repetida" id="repete__senha" class="cadastro__escrita" 
                 minlength="6"   
-                placeholder="Digite a sua senha novamente..." required />
+                placeholder="Digite a novamente..." required />
                 <span class="mensagem-erro"></span>
             </fieldset>
             

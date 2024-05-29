@@ -13,14 +13,13 @@ const favoritosSection = document.querySelector('.favoritos');
 const listaMenuAberto = document.querySelector('.lista__menu__aberto');
 const menuHamburguer = document.querySelector('.cabecalho__menu-hamburguer');
 const busca = document.querySelector('.busca');
-const login = document.querySelector('.login');
 const loginIcon = document.querySelector('.cabecalho__icons__login')
 const queroCadastrarBtn = document.querySelector('.quero__cadastrar');
 const tenhoCadastroBtn = document.querySelector('.tenho__cadastro');
 const pagLogin = document.querySelector('#login');
 const pagCadastro = document.querySelector('#cadastro');
 
-
+const paginas = [home, sacola, listaMenuAberto, menuHamburguer, busca, pagLogin, favoritosSection, pagCadastro];
 
 hamburguerBtn.onclick = function(){
     if(hamburguerBtn.checked){
@@ -34,14 +33,23 @@ overlay.onclick = function(){
 }
 
 function escondeTudo(){
-    home.classList.add('hide');
-    sacola.classList.add('hide')
-    listaMenuAberto.classList.add('hide');
-    menuHamburguer.classList.add('hide');
-    busca.classList.add('hide');
-    login.classList.add('hide');
-    favoritosSection.classList.add('hide');
-    pagCadastro.classList.add('hide');
+    paginas.forEach((pagina) =>{
+        if(!pagina.classList.contains('hide')){
+            if(pagina.id == 'home'){
+                console.log('euuu');
+            }
+            pagina.classList.add('hide');
+        }
+    });
+
+    // home.classList.add('hide');
+    // sacola.classList.add('hide')
+    // listaMenuAberto.classList.add('hide');
+    // menuHamburguer.classList.add('hide');
+    // busca.classList.add('hide');
+    // pagLogin.classList.add('hide');
+    // favoritosSection.classList.add('hide');
+    // pagCadastro.classList.add('hide');
 }
 
 
@@ -61,8 +69,8 @@ const trocarPaginaHome = ()=>{
 }
 const trocarPaginaLogin = ()=>{
 
-    escondeTudo()
-    login.classList.remove('hide');
+    escondeTudo();
+    pagLogin.classList.remove('hide');
   
 }
 
@@ -86,6 +94,7 @@ function iconAlteraNumeroDeProdutosFavoritados(){
 }
 
 function trocarPaginaCadastro(){
+    console.log('ihuuuu1');
     escondeTudo();
     pagCadastro.classList.remove('hide');
 }
