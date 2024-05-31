@@ -3,18 +3,75 @@ if(document.readyState == 'loading'){
 }else{
   
     const inputBuscar = document.querySelector('.busca__input');
+    const buscaCategorizada = document.querySelector("#busca__categorizada");
+    const menuCarrossel = document.querySelector("#carrossel__menu").querySelectorAll('img');
+    const buscaCategorizadaContainer = document.querySelector('.busca__categorizada__container');
+
     let buscaProdutoFiltrado = document.querySelector('.busca__produto__filtrado');
 
-    const menuCarrossel = document.querySelector("#carrossel__menu").querySelectorAll('img');
+    buscaCategorizada.addEventListener('click', (e) =>fecharCategorias(e));
+    
     menuCarrossel.forEach((icone)=>{
-        icone.addEventListener("click", filtrarCategoria)
+        icone.addEventListener("click", (e) => filtrarCategoria(e));
     })
     
    inputBuscar.addEventListener("input", filtrarPesquisa);
 
-   function filtrarCategoria(){
-        console.log('funciona');
-   }
+   function fecharCategorias(e){
+        if(e.target.classList.contains('busca__categorizada__cross')){
+            buscaCategorizada.classList.add('hide');
+        }
+        return;
+    }
+
+
+
+
+   function filtrarCategoria(e){
+
+        buscaCategorizada.classList.remove('hide');
+        buscaCategorizadaContainer.innerHTML = '';
+        let categoriaSelecionada = e.target.id.slice(7);
+        buscaCategorizadaContainer.innerHTML = `<div class="cross__background"><img class="busca__categorizada__cross" src="img/cross.svg" alt=""></div>`;
+        let cross = buscaCategorizada.querySelector('.cross__background img');
+        
+        produtosDisponiveis.forEach((produto) =>{
+            let produtoJaExisteNosFavoritos = favoritos.find((favorito) => favorito.id == produto.id);
+            if(produto.categoria == categoriaSelecionada){
+                buscaCategorizadaContainer.innerHTML += `
+                <div class="produto">
+                    <div class="produto__img__container"><img src=${produto.imagem}  alt="" class="produto__img"></div>
+                    <div class="produto__infos">
+                        <div class="produto__nome__favoritar">
+                            <p>${produto.nome}</p>
+                            <div class="produto__favoritar ${produtoJaExisteNosFavoritos 
+                                ? ''
+                                : 'produto__nome__favoritar__desativado'}" >
+                                <img id=${produto.id} src="./img/coracao.png" alt="Icone de coração">
+                            </div>
+                        </div>
+                        <div class="produto__infos-precos-botao">
+                            <div class="produto__infos-precos">
+                                ${produto.promocao  
+                                    ? `<p class="produto__preco">${produto.preco}</p> 
+                                    <p class="produto__preco-antigo">${produto.precoAntigo}</p>` 
+                                    :`<p class="produto__preco">R$ 50,00</p>`
+                                }
+                            </div>
+                            <div class="produto__infos-botao">
+                                <button id=${produto.id} class="produto__botao">Adicionar à sacola</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                `;
+            }
+        })
+
+        
+       
+    }
+
 
    function filtrarPesquisa(){
         buscaProdutoFiltrado.innerHTML = '';
@@ -78,6 +135,8 @@ if(document.readyState == 'loading'){
                 btnCoracao.forEach(btn => btn.addEventListener('click', (e) => toggleFavoritos(e)))
         }
     }
+
+ 
     
     
 }

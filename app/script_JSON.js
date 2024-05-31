@@ -110,6 +110,7 @@ fetch("dados.json").then((response) =>{
             let produtoArmazenado ={
                 id: produto.id,
                 nome: produto.nome,
+                categoria: produto.categoria,
                 preco: produto.preco,
                 imagem: produto.imagem,
                 quantidade: `${parseInt(produto.quantidade) + 1}`,
@@ -143,6 +144,7 @@ fetch("dados.json").then((response) =>{
             let promocaoArmazenada ={
                 id: promocao.id,
                 nome: promocao.nome,
+                categoria: promocao.categoria,
                 preco: promocao.preco,
                 precoAntigo: promocao.precoAntigo,
                 imagem: promocao.imagem,

@@ -1,4 +1,5 @@
-const camposDoCadastro = document.querySelectorAll("[required]");
+const camposDoCadastro = document.querySelector('#cadastro').querySelectorAll("[required]");
+const camposDoLogin = document.querySelector('#login').querySelectorAll("[required]");
 const inputCPF = document.querySelector(".cpf");
 const senhaOlho = document.querySelector('#icon__olho')
 const inputSenha = document.querySelector('#senha');
@@ -6,19 +7,34 @@ const senhaOlho2 = document.querySelector('#icon__olho2');
 const loginOlho = document.querySelector('#icon__olho__login');
 const inputSenhaRepete = document.querySelector('#repete__senha');
 const inputSenhaLogin = document.querySelector('#senha__login');
-const botaoSubmit = document.querySelector('.cadastro__botao');
+const botaoSubmit = document.querySelector('#enviar__cadastro');
 const termoCheck = document.querySelector('.input__check');
 
 
 //TRATA CPF
 
 
+
+
 inputCPF.addEventListener('keypress',(e)=>formataCPF(inputCPF,e));
+
 camposDoCadastro.forEach((campo)=>{
-    // campo.addEventListener("keypress", ()=>habilitaCadastro());
+    campo.addEventListener("change", ()=>habilitaCadastro());
+    campo.addEventListener('keyup', ()=>habilitaCadastro())
     campo.addEventListener("blur", ()=> verificaCampo(campo));
     campo.addEventListener('invalid', (e) => e.preventDefault());
 });
+
+camposDoLogin.forEach((campo)=>{
+    campo.addEventListener("blur", ()=> verificaCampo(campo));
+    campo.addEventListener('invalid', (e) => e.preventDefault());
+});
+
+
+function habilitaCadastro(){
+    let validadorForm = Array.from(camposDoCadastro).find((campo) => campo.checkValidity() == false);
+    validadorForm ? botaoSubmit.setAttribute('Disabled', "") : botaoSubmit.removeAttribute('Disabled');
+}
 
 
 const tiposDeErro = [
@@ -113,9 +129,9 @@ function verificaCampo(campo){
         mensagemErro.textContent = '';
     }
 
-    let validadorForm = Array.from(camposDoCadastro).find((campo) => campo.checkValidity() == false);
-    console.log(validadorForm);
-    validadorForm ? botaoSubmit.disabled = true : botaoSubmit.disabled = false;
+    // let validadorForm = Array.from(camposDoCadastro).find((campo) => campo.checkValidity() == false);
+    // console.log(validadorForm);
+    // validadorForm ? botaoSubmit.disabled = true : botaoSubmit.disabled = false;
 
 
 }
