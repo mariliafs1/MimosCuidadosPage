@@ -74,7 +74,7 @@ function toggleCoracaoCor(coracao){
     let coracaoProdutosArray = Array.from(coracaoProdutos);
 
     let coracaoClicado = coracaoProdutosArray.filter((produto) => (produto.firstChild.id == coracao.id ))
-    console.log(coracaoClicado);
+    console.log('aqui:',coracaoClicado);
     coracaoClicado.forEach((produto)=>{
         
         if(produto.firstChild.classList.contains('produto__nome__favoritar__desativado')){

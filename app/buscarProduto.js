@@ -10,10 +10,11 @@ if(document.readyState == 'loading'){
     let buscaProdutoFiltrado = document.querySelector('.busca__produto__filtrado');
 
     buscaCategorizada.addEventListener('click', (e) =>fecharCategorias(e));
+    // buscaCategorizada.addEventListener('click', (e)=>toggleFavoritosCategorizados(e))
     
     menuCarrossel.forEach((icone)=>{
         icone.addEventListener("click", (e) => filtrarCategoria(e));
-    })
+    });
     
    inputBuscar.addEventListener("input", filtrarPesquisa);
 
@@ -24,6 +25,16 @@ if(document.readyState == 'loading'){
         return;
     }
 
+    // function toggleFavoritosCategorizados(e){
+    //     console.log('entrou');
+    //     console.log(e.target);
+    //     if(e.target.classList.contains('coracaoCategorizado')){
+    //         toggleFavoritos(e);
+
+    //     }
+    //     return;
+    // }
+
 
 
 
@@ -33,7 +44,6 @@ if(document.readyState == 'loading'){
         buscaCategorizadaContainer.innerHTML = '';
         let categoriaSelecionada = e.target.id.slice(7);
         buscaCategorizadaContainer.innerHTML = `<div class="cross__background"><img class="busca__categorizada__cross" src="img/cross.svg" alt=""></div>`;
-        let cross = buscaCategorizada.querySelector('.cross__background img');
         
         produtosDisponiveis.forEach((produto) =>{
             let produtoJaExisteNosFavoritos = favoritos.find((favorito) => favorito.id == produto.id);
@@ -47,7 +57,7 @@ if(document.readyState == 'loading'){
                             <div class="produto__favoritar ${produtoJaExisteNosFavoritos 
                                 ? ''
                                 : 'produto__nome__favoritar__desativado'}" >
-                                <img id=${produto.id} src="./img/coracao.png" alt="Icone de coração">
+                                <img id=${produto.id} src="./img/coracao.png" alt="Icone de coração" class='coracaoCategorizado'>
                             </div>
                         </div>
                         <div class="produto__infos-precos-botao">
@@ -68,8 +78,14 @@ if(document.readyState == 'loading'){
             }
         })
 
-        
-       
+        let produtoBtn = buscaCategorizadaContainer.querySelectorAll('.produto__botao');
+                produtoBtn.forEach( btn => {
+                    btn.addEventListener('click', (e)=> adicionarCarrinho(e))
+                })
+                let btnCoracao2 = buscaCategorizadaContainer.querySelectorAll('.produto__favoritar'); 
+                console.log(btnCoracao2);
+                 btnCoracao2.forEach(btn => btn.addEventListener('click', (e) => toggleFavoritos(e)));
+                       
     }
 
 

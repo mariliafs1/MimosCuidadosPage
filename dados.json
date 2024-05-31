@@ -107,7 +107,7 @@
         },
         {
             "id":"11",
-            "nome" : "Shampoo Cacheados",
+            "nome" : "Shampoo Cachos",
             "preco": "R$ 32,99",
             "precoAntigo": "R$ 50,00",
             "imagem" : "./img/produto_shampoo.jpg",
